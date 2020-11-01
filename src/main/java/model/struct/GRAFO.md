@@ -51,7 +51,7 @@ Il codice è identico a quello della visita in ampiezza sostituendo la coda con 
    * Li accodiamo affinchè siano visitati a loro volta
 4. Marchiamo quindi il nodo estratto come nero e riprendiamo estraendo il successivo
 
-Complessità totale: $\Theta$(|V| + |E|)
+Complessità totale: $$\Theta$$(|V| + |E|)
 
 ## Cammino minimo (Algoritmo di Dijkstra)
 
