@@ -1,6 +1,6 @@
 # Grafo
 
-Il *grafo* è la struttura dati più naturale per rappresentare un insieme di oggetti legati da una generica relazione tra di loro.
+Il grafo è la struttura dati più naturale per rappresentare un insieme di oggetti legati da una generica relazione tra di loro.
 La relazione tra gli oggetti è rappresentata da un insieme di coppie di oggetti (ordinate o meno), legate tra loro da un *arco*: questo, a sua volta, può avere un verso (grafo diretto) o meno.
 
 Esempio: Una mappa stradale: nodi → città, relazione → le città sono collegate da una strada
@@ -27,13 +27,13 @@ Un grafo può essere visitato in *ampiezza* o *profondità*:
 
 ### Visita in ampiezza
 
-La strategia di **[visita in ampiezza](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/a3c66c95fc49dda63f33791e671dfa250db2bb13/src/main/java/model/struct/Grafo.java#L210)** visita tutti i nodi di un grafo G a partire da uno nodo sorgente s.
+La strategia di **[visita in ampiezza](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/a3c66c95fc49dda63f33791e671dfa250db2bb13/src/main/java/model/struct/Grafo.java#L210)** visita tutti i nodi di un grafo *G* a partire da uno nodo sorgente *s*.
 
 Vengono visitati tutti i nodi con un cammino tra loro e *s* lungo *n* passi, prima di visitare quelli con un cammino lungo *n + 1*.
 La visita di un grafo è più problematica di quella di un albero: possono essere presenti cicli, quindi evitiamo di iterare all’infinito colorando i nodi mentre li visitiamo:
-* Nodo bianco: deve essere ancora visitato
-* Nodo grigio: il nodo è stato visitato, devono essere visitati quelli adiacenti ad esso
-* Nodo nero: sono stati visitati sia il nodo che quelli adiacenti
+* *Nodo bianco*: deve essere ancora visitato
+* *Nodo grigio*: il nodo è stato visitato, devono essere visitati quelli adiacenti ad esso
+* *Nodo nero*: sono stati visitati sia il nodo che quelli adiacenti
 
 ### Visita in profondità
 
