@@ -11,15 +11,15 @@ Esempio: Una mappa stradale: nodi → città, relazione → le città sono colle
 
 Il grafo è rappresentato da un *vettore di liste lungo |V|*, indicizzato dai nomi dei nodi: ogni lista contiene i nodi adiacenti all’indice della sua testa.
 
-La **complessità spaziale**, definito |E| come il numero di archi del grafo, è data da teta(|V| + |E|).
+La **complessità spaziale**, definito |E| come il numero di archi del grafo, è data da \theta(|V| + |E|).
 
-La **complessità temporale** per vedere se una coppia (v1, v2) appartiene al grafo è teta(|V|) (si deve controllare, nel caso pessimo, ogni lista).
+La **complessità temporale** per vedere se una coppia (v1, v2) appartiene al grafo è \theta(|V|) (si deve controllare, nel caso pessimo, ogni lista).
 
 ### Matrice di adiacenza
 
 Una *matrice di valori booleani |V| × |V|*, con righe e colonne indicizzate dai nomi dei nodi: la cella alla riga i, colonna j contiene 1 se l’arco (vi,vj) è presente nel grafo (0 altrimenti).
 
-La **complessità spaziale** è data da teta(|V|^2), mentre la **complessità temporale** per vedere se una coppia (v1, v2) appartiene al grafo è teta(1) (è sufficiente controllare se la cella (v1, v2).
+La **complessità spaziale** è data da \theta(|V|^2), mentre la **complessità temporale** per vedere se una coppia (v1, v2) appartiene al grafo è \theta(1) (è sufficiente controllare se la cella (v1, v2).
 
 ## Visite di un grafo
 
@@ -45,7 +45,7 @@ La visita di un grafo è più problematica di quella di un albero: possono esser
   * Li accodiamo affinchè siano visitati a loro volta
 * Marchiamo quindi il nodo estratto come nero e riprendiamo estraendo il successivo
 
-Complessità totale: O(|V| + |E|)
+Complessità totale: \theta(|V| + |E|)
 
 ### Visita in profondità
 
