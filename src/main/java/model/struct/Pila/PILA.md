@@ -1,6 +1,6 @@
 # Pila
 
-Una pila è una struttura dati con le seguenti operazioni: 
+Una *[pila](src/main/java/model/struct/Pila/Pila.java)* è una struttura dati con le seguenti operazioni: 
 * **Push(S,e)**: aggiunge l’elemento in cima alla pila
 * **Pop(S,e)**: restituisce l’elemento in cima alla pila cancellandolo 
 * **Empty(S)**: restituisce *true* se la pila è vuota
