@@ -11,7 +11,7 @@ Esempio: Una mappa stradale: nodi → città, relazione → le città sono colle
 
 Il grafo è rappresentato da un *vettore di liste lungo |V|*, indicizzato dai nomi dei nodi: ogni lista contiene i nodi adiacenti all’indice della sua testa.
 
-La **complessità spaziale***, definito |E| come il numero di archi del grafo, è data da teta(|V| + |E|).
+La **complessità spaziale**, definito |E| come il numero di archi del grafo, è data da teta(|V| + |E|).
 
 La **complessità temporale** per vedere se una coppia (v1, v2) appartiene al grafo è teta(|V|) (si deve controllare, nel caso pessimo, ogni lista).
 
@@ -33,17 +33,17 @@ La strategia di **[visita in ampiezza](/src/main/java/model/struct/Grafo.java)**
 
 Vengono visitati tutti i nodi con un cammino tra loro e s lungo n passi, prima di visitare quelli con un cammino lungo n + 1.
 La visita di un grafo è più problematica di quella di un albero: possono essere presenti cicli, quindi evitiamo di iterare all’infinito colorando i nodi mentre li visitiamo:
-  * Nodo bianco: deve essere ancora visitato
-  * Nodo grigio: il nodo è stato visitato, devono essere visitati quelli adiacenti ad esso
-  * Nodo nero: sono stati visitati sia il nodo che quelli adiacenti
+   * Nodo bianco: deve essere ancora visitato
+   * Nodo grigio: il nodo è stato visitato, devono essere visitati quelli adiacenti ad esso
+   * Nodo nero: sono stati visitati sia il nodo che quelli adiacenti
  
-* *Memorizziamo in una coda i nodi ancora da visitare
-* *La coda è inizializzata con la sola sorgente
-* *Estraiamo un nodo dalla coda e:
-  * *Visitiamo i vicini bianchi
-  * *Li coloriamo di grigio e calcoliamo la loro distanza 
-  * *Li accodiamo affinchè siano visitati a loro volta
-* *Marchiamo quindi il nodo estratto come nero e riprendiamo estraendo il successivo
+* Memorizziamo in una coda i nodi ancora da visitare
+* La coda è inizializzata con la sola sorgente
+* Estraiamo un nodo dalla coda e:
+  * Visitiamo i vicini bianchi
+  * Li coloriamo di grigio e calcoliamo la loro distanza 
+  * Li accodiamo affinchè siano visitati a loro volta
+* Marchiamo quindi il nodo estratto come nero e riprendiamo estraendo il successivo
 
 Complessità totale: O(|V| + |E|)
 
