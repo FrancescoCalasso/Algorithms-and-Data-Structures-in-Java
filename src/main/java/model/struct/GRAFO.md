@@ -5,20 +5,6 @@ La relazione tra gli oggetti è rappresentata da un insieme di coppie di oggetti
 
 Esempio: Una mappa stradale: nodi → città, relazione → le città sono collegate da una strada
 
-
-## Funzioni caratteristiche
-
-* Aggiungi nodo al grafo
-
-* Aggiungi arco al grafo
-
-* Ricerca di un nodo nel grafo
-
-* Estrai il nodo con valore massimo
-
-* Cancella un nodo dal grafo
-
-
 ## Rappresentazione di un grafo
 
 ### Lista di adiacenza
@@ -41,7 +27,7 @@ Un grafo può essere visitato in ampiezza o profondità:
 
 ### Visita in ampiezza
 
-La strategia di visita in ampiezza visita tutti i nodi di un grafo G a partire da uno nodo sorgente s.
+La strategia di [visita in ampiezza][/main/source/java/model/struct/Grafo] visita tutti i nodi di un grafo G a partire da uno nodo sorgente s.
 
 #### Algoritmo di visita: 
 
