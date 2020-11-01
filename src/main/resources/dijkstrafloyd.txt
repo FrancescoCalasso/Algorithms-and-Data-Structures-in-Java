@@ -1,0 +1,85 @@
+
+Per i grafi esistono due particolari operazioni, oltre a quelle usuali di inserimento, ricerca e cancellazione, che consistono in:
+
+- Ricerca dei cammini minimi da un nodo sorgente agli altri nodi (Algoritmo di Dijkstra)
+- Individuazione presenza di cicli (Algoritmo di Floyd)
+
+Algoritmo di Dijkstra
+
+function Dijkstra(Grafo, sorgente):
+
+     For each vertice v in Grafo:                                              // Inizializzazione
+         dist[v] := infinito ;                                                          // Distanza iniziale sconosciuta 
+                                                                                              // dalla sorgente a v
+         precedente[v] := non definita ;                                     // Nodo precedente
+     end for                                                                             // dalla sorgente
+
+     dist[sorgente] := 0 ;                                                          // Distanza dalla sorgente alla sorgente
+     Q := L'insieme di tutti i nodi nel Grafo ;                            // Tutti i nodi del grafo sono non ottimizzati
+                                                                                              // e quindi stanno in Q
+     
+     while Q non è vuota:                                                        // Loop principale
+         u := vertice in Q con la più breve distanza in dist[];
+         rimuovi u da Q ;
+         if dist[u] = infinito:
+             break ;                                                                      // tutti i vertici rimanenti sono
+         end if                                                                            // inaccessibili dal nodo sorgente
+
+         For each neighbour v di u:                                           // dove v non è ancora stato 
+                                                                                             // rimosso da Q.
+             alt := dist[u] + dist_tra(u, v) ;
+
+             if alt < dist[v]:                                                          // Rilascia (u,v,a)
+                 dist[v] := alt ;
+                 precedente[v] := u ;
+                 decrease-key v in Q;                                         // Riordina v nella coda
+             end if
+         end for
+     end while
+ return dist;
+
+
+
+Algoritmo di Floyd
+
+def floyd(f, x0):
+
+    # Prima fase dell'algoritmo, trovare il ciclo x_mu = x_2mu
+    # La lepre si muove 2 volte più velocemente della tartaruga
+    # Eventualmente la lepre e la tartaruga si troveranno entrambi all'interno 
+    # del ciclo e la distanza tra loro aumenterà di 1 unità alla volta fino a 
+    # quando questa distanza sarà divisibile per la lunghezza del ciclo, ossia
+    # la lepre e la tartaruga si incontrano in un nodo del ciclo
+
+    tortoise = f(x0) # f(x0) è l'elemento/nodo dopo x0.
+    hare = f(f(x0))
+    while tortoise != hare:
+        tortoise = f(tortoise)
+        hare = f(f(hare))
+  
+    # a questo punto la tartaruga e la lepre si trovano nello stesso nodo
+    # all'interno del ciclo. Si mette la tartaruga all'inizio della sequenza,
+    # lasciando ferma la lepre. Poi si fanno muovere entrambe di 1 unitaà alla volta
+    # fino a quando non si incontrano di nuovo. A questo punto si incontrano
+    # all'inizio del ciclo
+
+    # Trova la posizione della prima ripetizione di lunghezza mu
+    # La lepre e la tartaruga si muovono alla stessa velocità di 1 unità
+
+    mu = 0
+    tortoise = x0
+    while tortoise != hare:
+        tortoise = f(tortoise)
+        hare = f(hare)
+        mu += 1
+ 
+    # Trova la lunghezza del ciclo più corto a partire da x_mu
+    # La lepre si muove e la tartaruga sta ferma
+
+    lam = 1
+    hare = f(tortoise)
+    while tortoise != hare:
+        hare = f(hare)
+        lam += 1
+ 
+    return lam, mu

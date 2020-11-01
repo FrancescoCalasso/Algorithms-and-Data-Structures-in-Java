@@ -1,0 +1,55 @@
+
+MERGE SORT
+
+“Mergesort” è un algoritmo di ordinamento conforme al metodo “divide et impera” e impiega un tempo circa pari a nlogn:
+
+- Divide la sequenza degli n elementi da ordinare in due sottosequenze di n/2 elementi;
+
+- Ordina le due sottosequenze in modo ricorsivo utilizzando l’algoritmo merge sort;
+
+- Fonde le due sottosequenze ordinate per generare la sequenza ordinata.
+
+Il modo di operare dell’algoritmo è simile a quanto segue: abbiamo due mazzi scoperti e ordinati su un tavolo; di volta in volta prendiamo la carta minore tra i due mazzi e la impiliamo su un nuovo mazzo. Andando avanti fino ad esaurimento carte, otterremo il nuovo mazzo “fusione” ordinato.
+
+PSEUDOCODICE
+
+function mergesort (a[], left, right)
+    if left < right then
+ 	   center ← (left + right) / 2
+ 	   mergesort(a, left, center)
+ 	   mergesort(a, center+1, right)
+ 	   merge(a, left, center, right)
+
+
+function merge (a[], left, center, right)
+    i ← left
+    j ← center + 1
+    k ← 0
+    b ← array temp size= right-left+1
+
+    while i ≤ center and j ≤ right do
+       if a[i] ≤ a[j] then
+          b[k] ← a[i]
+          i ← i + 1
+       else
+ 	  b[k] ← a[j]
+ 	  j ← j + 1
+       k ← k + 1
+    end while
+
+    while i ≤ center do
+       b[k] ← a[i]
+       i ← i + 1
+       k ← k + 1
+    end while
+
+    while j ≤ right do
+       b[k] ← a[j]
+       j ← j + 1
+       k ← k + 1
+    end while
+
+    for k ← left to right do
+       a[k] ← b[k-left]
+
+

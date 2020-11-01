@@ -1,0 +1,50 @@
+
+HEAPSORT
+
+“Heapsort” è un algoritmo di ordinamento che usa una struttura dati chiamata “Heap”: si tratta di un albero binario completo (o semi-completo) in cui ogni padre possiede al massimo due figli, uno destro e uno sinistro, e in cui vige la proprietà per cui il valore del padre è sempre maggiore di quello dei figli.
+
+E’ facile, quindi, notare come l’elemento maggiore si trovi nella radice.
+
+L’heap può essere rappresentato da un array dove, per ogni elemento, dato il suo indice “i”, è possibile ottenere quello del padre o dei figli, se esistono, in questo modo:
+
+Parent (i) return⌊i/2⌋
+Left (i) return 2i
+Right(i) return 2i+1
+
+L’algoritmo, migliore di Insertion sort e Quicksort, opera sull’array appena descritto, sfruttando una funzione per costruire l’heap e un’altra, chiamata Heapify, per garantire che le proprietà dell’heap restino valide.
+
+Di volta in volta sposta la radice (elemento che si sa essere maggiore), accodandola in fondo all’array, esegue nuovamente Heapify sulla nuova radice e la ri-sposta in fondo.
+
+Heapsort ha un tempo di esecuzione pari circa a nlogn.
+
+PSEUDOCODICE
+
+Heapsort(A) {
+   BuildHeap(A)
+   for i <- length(A) downto 2 {
+      exchange A[1] <-> A[i]
+      heapsize <- heapsize -1
+      Heapify(A, 1)
+}
+
+BuildHeap(A) {
+   heapsize <- length(A)
+   for i <- floor( length/2 ) downto 1
+      Heapify(A, i)
+}
+
+Heapify(A, i) {
+   le <- left(i)
+   ri <- right(i)
+   if (le<=heapsize) and (A[le]>A[i])
+      largest <- le
+   else
+      largest <- i 
+   if (ri<=heapsize) and (A[ri]>A[largest])
+      largest <- ri
+   if (largest != i) {
+      exchange A[i] <-> A[largest]
+      Heapify(A, largest)
+   }
+}
+
