@@ -3,7 +3,7 @@
 Il *[grafo](src/main/java/model/struct/Grafo/Grafo.java)* è la struttura dati più naturale per rappresentare un insieme di oggetti legati da una generica relazione tra di loro.
 La relazione tra gli oggetti è rappresentata da un insieme di coppie di oggetti (ordinate o meno), legate tra loro da un *arco*: questo, a sua volta, può avere un verso (grafo diretto) o meno.
 
-Esempio: Una mappa stradale: nodi → città, relazione → le città sono collegate da una strada
+Esempio, una mappa stradale: nodi → città, relazione → le città sono collegate da una strada
 
 ## Rappresentazione di un grafo
 
