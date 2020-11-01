@@ -27,7 +27,7 @@ Un grafo può essere visitato in *ampiezza* o *profondità*:
 
 ### Visita in ampiezza
 
-La strategia di **[visita in ampiezza](/src/main/java/model/struct/Grafo.java)** visita tutti i nodi di un grafo G a partire da uno nodo sorgente s.
+La strategia di **[visita in ampiezza](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/a3c66c95fc49dda63f33791e671dfa250db2bb13/src/main/java/model/struct/Grafo.java#L210)** visita tutti i nodi di un grafo G a partire da uno nodo sorgente s.
 
 #### Algoritmo di visita: 
 
