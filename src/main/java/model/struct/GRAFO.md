@@ -68,7 +68,3 @@ Complessità totale: \Theta(|V| + |E|)
 * [Estrai il nodo con valore massimo](/src/main/java/model/struct/Grafo.java)
 
 * [Cancella un nodo dal grafo](/src/main/java/model/struct/Grafo.java)
-
-\[ \theta \]
-
-$\theta$
