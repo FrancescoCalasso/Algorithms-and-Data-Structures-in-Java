@@ -29,20 +29,20 @@ Un grafo può essere visitato in *ampiezza* o *profondità*:
 
 La strategia di **[visita in ampiezza](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/a3c66c95fc49dda63f33791e671dfa250db2bb13/src/main/java/model/struct/Grafo.java#L210)** visita tutti i nodi di un grafo G a partire da uno nodo sorgente s.
 
-#### Algoritmo di visita: 
-
-Vengono visitati tutti i nodi con un cammino tra loro e s lungo n passi, prima di visitare quelli con un cammino lungo n + 1.
+Vengono visitati tutti i nodi con un cammino tra loro e *s* lungo *n* passi, prima di visitare quelli con un cammino lungo *n + 1*.
 La visita di un grafo è più problematica di quella di un albero: possono essere presenti cicli, quindi evitiamo di iterare all’infinito colorando i nodi mentre li visitiamo:
-   * Nodo bianco: deve essere ancora visitato
-   * Nodo grigio: il nodo è stato visitato, devono essere visitati quelli adiacenti ad esso
-   * Nodo nero: sono stati visitati sia il nodo che quelli adiacenti
- 
+* Nodo bianco: deve essere ancora visitato
+* Nodo grigio: il nodo è stato visitato, devono essere visitati quelli adiacenti ad esso
+* Nodo nero: sono stati visitati sia il nodo che quelli adiacenti
+
+#### Algoritmo di visita 
+
 1. Memorizziamo in una coda i nodi ancora da visitare
 2. La coda è inizializzata con la sola sorgente
 3. Estraiamo un nodo dalla coda e:
-  * Visitiamo i vicini bianchi
-  * Li coloriamo di grigio e calcoliamo la loro distanza 
-  * Li accodiamo affinchè siano visitati a loro volta
+   * Visitiamo i vicini bianchi
+   * Li coloriamo di grigio e calcoliamo la loro distanza 
+   * Li accodiamo affinchè siano visitati a loro volta
 4. Marchiamo quindi il nodo estratto come nero e riprendiamo estraendo il successivo
 
 Complessità totale: \theta(|V| + |E|)
