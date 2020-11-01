@@ -1,11 +1,11 @@
 package view;
 
 import controller.Controller;
-import model.algorithm.InsertionSort;
-import model.algorithm.MaxHeap;
-import model.algorithm.MergeSort;
-import model.algorithm.QuickSort;
-import model.struct.Grafo;
+import model.algorithm.InsertionSort.InsertionSort;
+import model.struct.Heap.MaxHeap;
+import model.algorithm.Mergesort.MergeSort;
+import model.algorithm.QuickSort.QuickSort;
+import model.struct.Grafo.Grafo;
 
 import java.io.IOException;
 import java.util.ArrayList;

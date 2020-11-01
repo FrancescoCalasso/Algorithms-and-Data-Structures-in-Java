@@ -1,5 +1,7 @@
 package model.struct;
 
+import model.struct.BST.BinaryNode;
+
 public interface Struct {
 
     BinaryNode search(BinaryNode t);

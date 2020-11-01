@@ -1,4 +1,7 @@
-package model.algorithm;
+package model.algorithm.QuickSort;
+
+import model.algorithm.Algorithm;
+import model.algorithm.TimeAnalysis;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,4 +1,6 @@
-package model.algorithm;// Java program to implement Max Heap
+package model.struct.Heap;// Java program to implement Max Heap
+
+import model.algorithm.Algorithm;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

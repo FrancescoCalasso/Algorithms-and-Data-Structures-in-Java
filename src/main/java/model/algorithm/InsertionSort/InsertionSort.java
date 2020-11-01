@@ -1,4 +1,6 @@
-package model.algorithm;
+package model.algorithm.InsertionSort;
+
+import model.algorithm.Algorithm;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

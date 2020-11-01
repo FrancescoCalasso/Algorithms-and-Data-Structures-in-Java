@@ -1,5 +1,8 @@
 package model.struct;
 
+import model.struct.Grafo.Arco;
+import model.struct.Grafo.Grafo;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -21,7 +24,7 @@ import java.util.Set;
  *
  */
 
-public class GrafoOrdinato extends Grafo {
+public class GrafoDiretto extends Grafo {
 
     private int time = 0;
     private Map<Object,Integer> endValues = new HashMap<Object,Integer>();

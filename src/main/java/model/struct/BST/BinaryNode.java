@@ -1,4 +1,4 @@
-package model.struct;
+package model.struct.BST;
 
 import view.TreePrinter;
 

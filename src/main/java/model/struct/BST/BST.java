@@ -1,8 +1,7 @@
-package model.struct;
+package model.struct.BST;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**

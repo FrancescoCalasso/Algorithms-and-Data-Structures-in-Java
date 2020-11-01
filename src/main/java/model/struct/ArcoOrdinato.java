@@ -1,12 +1,14 @@
 package model.struct;
 
+import model.struct.Grafo.Arco;
+
 /**
  * Rappresenta un arco ordinato, estende la classe Arco
  * Per convenzione node1 e' il nodo da cui parte l'arco (from),
  * node2 e' il nodo in cui l'arco arriva (to)
  *
  */
-public class ArcoOrdinato extends Arco{
+public class ArcoOrdinato extends Arco {
 		
 	 /**
 	   * Costruttore con tre argomenti

@@ -1,10 +1,10 @@
 package controller;
 
 import model.algorithm.Algorithm;
-import model.struct.Arco;
-import model.struct.BST;
-import model.struct.BinaryNode;
-import model.struct.Grafo;
+import model.struct.Grafo.Arco;
+import model.struct.BST.BST;
+import model.struct.BST.BinaryNode;
+import model.struct.Grafo.Grafo;
 import view.CLI;
 import view.ViewInterface;
 import java.io.IOException;

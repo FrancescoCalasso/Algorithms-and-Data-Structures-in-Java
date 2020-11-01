@@ -1,4 +1,4 @@
-package model.struct;
+package model.struct.Grafo;
 
 /**
   * La classe arco serve per rappresentare un arco del grafo
