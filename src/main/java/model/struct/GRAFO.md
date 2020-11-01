@@ -37,19 +37,19 @@ La visita di un grafo è più problematica di quella di un albero: possono esser
    * Nodo grigio: il nodo è stato visitato, devono essere visitati quelli adiacenti ad esso
    * Nodo nero: sono stati visitati sia il nodo che quelli adiacenti
  
-* Memorizziamo in una coda i nodi ancora da visitare
-* La coda è inizializzata con la sola sorgente
-* Estraiamo un nodo dalla coda e:
+1. Memorizziamo in una coda i nodi ancora da visitare
+2. La coda è inizializzata con la sola sorgente
+3. Estraiamo un nodo dalla coda e:
   * Visitiamo i vicini bianchi
   * Li coloriamo di grigio e calcoliamo la loro distanza 
   * Li accodiamo affinchè siano visitati a loro volta
-* Marchiamo quindi il nodo estratto come nero e riprendiamo estraendo il successivo
+4. Marchiamo quindi il nodo estratto come nero e riprendiamo estraendo il successivo
 
 Complessità totale: \theta(|V| + |E|)
 
 ### Visita in profondità
 
-Diversamente dalla visita in ampiezza, visitiamo prima i nodi adiacenti a quello dato, poi il nodo stesso: segue i cammini “fino in fondo” sul grafo prima di visitare i vicini del nodo di partenza.
+Diversamente dalla visita in ampiezza, [in profondità](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/a3c66c95fc49dda63f33791e671dfa250db2bb13/src/main/java/model/struct/Grafo.java#L256) visitiamo prima i nodi adiacenti a quello dato, poi il nodo stesso: segue i cammini “fino in fondo” sul grafo prima di visitare i vicini del nodo di partenza.
 
 Il codice è identico a quello della visita in ampiezza sostituendo la coda con una pila (condivide quindi anche le complessità).
 
