@@ -59,12 +59,14 @@ Complessità totale: \Theta(|V| + |E|)
 
 ## Funzioni base
 
-* [Aggiungi nodo al grafo](/src/main/java/model/struct/Grafo.java)
+* [Aggiungi nodo al grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/57310f9d08ed7bcf7f80ccb2cbec725e309b1e17/src/main/java/model/struct/Grafo.java#L53)
 
-* [Aggiungi arco al grafo](/src/main/java/model/struct/Grafo.java)
+* [Aggiungi arco tra due nodi al grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/57310f9d08ed7bcf7f80ccb2cbec725e309b1e17/src/main/java/model/struct/Grafo.java#L89)
+
+* [Rimuovi un arco dal grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/57310f9d08ed7bcf7f80ccb2cbec725e309b1e17/src/main/java/model/struct/Grafo.java#L124)
 
 * [Ricerca di un nodo nel grafo](/src/main/java/model/struct/Grafo.java)
 
 * [Estrai il nodo con valore massimo](/src/main/java/model/struct/Grafo.java)
 
-* [Cancella un nodo dal grafo](/src/main/java/model/struct/Grafo.java)
+* [Cancella un nodo dal grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/57310f9d08ed7bcf7f80ccb2cbec725e309b1e17/src/main/java/model/struct/Grafo.java#L67)
