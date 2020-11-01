@@ -6,7 +6,7 @@ Questo repository presenta i principali algoritmi e strutture dati in linguaggio
 
 * **[Coda](src/main/java/model/struct/Coda/CODA.md)**
 * **[Pila](src/main/java/model/struct/Pila/PILA.md)**
-* **[BST]((src/main/java/model/struct/BST/BST.md)**
+* **[BST](src/main/java/model/struct/BST/BST.md)**
 * **[RBT](src/main/java/model/struct/RBT/RBT.md)**
 * **[Hash](src/main/java/model/struct/Hash/HASH.md)**
 * **[Grafo](src/main/java/model/struct/Grafo/GRAFO.md)**
@@ -18,4 +18,4 @@ Questo repository presenta i principali algoritmi e strutture dati in linguaggio
 * **[Mergesort](src/main/java/model/algorithm/Mergesort/MERGESORT.md)**
 * **[Quicksort](src/main/java/model/algorithm/QuickSort/QUICKSORT.md)**
 * **[Heapsort](src/main/java/model/algorithm/Heapsort/HEAPSORT.md)**
-* **[Counting sort]](src/main/java/model/algorithm/CountingSort/COUNTINGSORT.md)**
+* **[Counting sort](src/main/java/model/algorithm/CountingSort/COUNTINGSORT.md)**
