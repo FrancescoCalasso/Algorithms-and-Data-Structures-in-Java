@@ -19,7 +19,7 @@ La **complessità temporale** per vedere se una coppia (v<sub>1</sub>, v<sub>2</
 
 Una *matrice di valori booleani |V| × |V|*, con righe e colonne indicizzate dai nomi dei nodi: la cella alla riga i, colonna j contiene 1 se l’arco (v<sub>i</sub>,v<sub>j</sub>) è presente nel grafo (0 altrimenti).
 
-La **complessità spaziale** è data da \theta(|V|<sup>2</sup>), mentre la **complessità temporale** per vedere se una coppia (v<sub>21</sub>, v<sub>2</sub>) appartiene al grafo è Θ(1) (è sufficiente controllare se la cella (v<sub>1</sub>, v<sub>2</sub>).
+La **complessità spaziale** è data da \theta(|V|<sup>2</sup>), mentre la **complessità temporale** per vedere se una coppia (v<sub>1</sub>, v<sub>2</sub>) appartiene al grafo è Θ(1) (è sufficiente controllare se la cella (v<sub>1</sub>, v<sub>2</sub>).
 
 ## Visite di un grafo
 
