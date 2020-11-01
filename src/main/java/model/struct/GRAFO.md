@@ -11,15 +11,15 @@ Esempio: Una mappa stradale: nodi → città, relazione → le città sono colle
 
 Il grafo è rappresentato da un *vettore di liste lungo |V|*, indicizzato dai nomi dei nodi: ogni lista contiene i nodi adiacenti all’indice della sua testa.
 
-La **complessità spaziale**, definito |E| come il numero di archi del grafo, è data da \theta(|V| + |E|).
+La **complessità spaziale**, definito |E| come il numero di archi del grafo, è data da Θ(|V| + |E|).
 
-La **complessità temporale** per vedere se una coppia (v<sub>1</sub>, v<sub>2</sub>) appartiene al grafo è \theta(|V|) (si deve controllare, nel caso pessimo, ogni lista).
+La **complessità temporale** per vedere se una coppia (v<sub>1</sub>, v<sub>2</sub>) appartiene al grafo è Θ(|V|) (si deve controllare, nel caso pessimo, ogni lista).
 
 ### Matrice di adiacenza
 
 Una *matrice di valori booleani |V| × |V|*, con righe e colonne indicizzate dai nomi dei nodi: la cella alla riga i, colonna j contiene 1 se l’arco (v<sub>i</sub>,v<sub>j</sub>) è presente nel grafo (0 altrimenti).
 
-La **complessità spaziale** è data da \theta(|V|<sup>2</sup>), mentre la **complessità temporale** per vedere se una coppia (v<sub>21</sub>, v<sub>2</sub>) appartiene al grafo è \theta(1) (è sufficiente controllare se la cella (v<sub>1</sub>, v<sub>2</sub>).
+La **complessità spaziale** è data da \theta(|V|<sup>2</sup>), mentre la **complessità temporale** per vedere se una coppia (v<sub>21</sub>, v<sub>2</sub>) appartiene al grafo è Θ(1) (è sufficiente controllare se la cella (v<sub>1</sub>, v<sub>2</sub>).
 
 ## Visite di un grafo
 
@@ -37,7 +37,7 @@ La visita di un grafo è più problematica di quella di un albero: possono esser
 
 ### Visita in profondità
 
-Diversamente dalla visita in ampiezza, [in profondità](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/a3c66c95fc49dda63f33791e671dfa250db2bb13/src/main/java/model/struct/Grafo.java#L256) visitiamo prima i nodi adiacenti a quello dato, poi il nodo stesso: segue i cammini “fino in fondo” sul grafo prima di visitare i vicini del nodo di partenza.
+Diversamente dalla visita in ampiezza, **[in profondità](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures/blob/a3c66c95fc49dda63f33791e671dfa250db2bb13/src/main/java/model/struct/Grafo.java#L256)** visitiamo prima i nodi adiacenti a quello dato, poi il nodo stesso: segue i cammini “fino in fondo” sul grafo prima di visitare i vicini del nodo di partenza.
 
 Il codice è identico a quello della visita in ampiezza sostituendo la coda con una pila (condivide quindi anche le complessità).
 
@@ -51,7 +51,7 @@ Il codice è identico a quello della visita in ampiezza sostituendo la coda con 
    * Li accodiamo affinchè siano visitati a loro volta
 4. Marchiamo quindi il nodo estratto come nero e riprendiamo estraendo il successivo
 
-Complessità totale: \Theta(|V| + |E|)
+Complessità totale: Θ(|V| + |E|)
 
 ## Cammino minimo (Algoritmo di Dijkstra)
 
