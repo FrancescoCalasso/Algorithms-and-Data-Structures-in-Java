@@ -2,7 +2,7 @@ package controller;
 
 import model.struct.Grafo.Arco;
 import model.struct.BST.BST;
-import model.struct.BST.BinaryNode;
+import model.struct.BST.Nodo;
 import model.struct.Grafo.Grafo;
 import view.CLI;
 import view.ViewInterface;
@@ -79,7 +79,7 @@ public class Controller {
     public BST createBST() {
 
         tree = new BST();
-        BinaryNode radice = new BinaryNode(4);
+        Nodo radice = new Nodo(4);
         tree.setRoot(radice);
         tree.put(2);
         tree.put(3);
