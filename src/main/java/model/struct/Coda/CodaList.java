@@ -1,27 +1,27 @@
 package model.struct.Coda;
 
-import java.util.ArrayList;
-
 public class CodaList {
 
-    private int head, tail;
-    private ArrayList<Integer> coda = new ArrayList<>();
+    private Nodo head, tail;
 
-    public void push(int num) {
+    public void push(Nodo nodo) {
 
-        coda.add(num);
+        tail.next = nodo;
 
     }
 
-    public int pop() {
+    public Nodo pop() {
 
-        return coda.get(++head);
+        Nodo temp = head;
+        head = head.next;
+        return temp;
 
     }
 
     public boolean isEmpty() {
 
-        return coda.size() == 0;
+        return head == tail;
 
     }
+
 }
