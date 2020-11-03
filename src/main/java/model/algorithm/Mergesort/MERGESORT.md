@@ -13,3 +13,5 @@ Il modo di operare dell’algoritmo è simile a quanto segue:
 * Abbiamo due mazzi scoperti e ordinati su un tavolo
 * Di volta in volta prendiamo la carta minore tra i due mazzi e la impiliamo su un nuovo mazzo 
 * Andando avanti fino ad esaurimento carte, otterremo il nuovo mazzo “fusione” ordinato.
+
+![Alt Text](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
