@@ -1,6 +1,6 @@
 # Coda
 
-Una coda è una struttura dati in cui è possibile solo **aggiungere** in coda e **cancellare** dalla testa della lista.
+Una *[coda](src/main/java/model/struct/Coda/Coda.java)* è una struttura dati in cui è possibile solo **aggiungere** in coda e **cancellare** dalla testa della lista.
 
 Possiede le seguenti operazioni:
 
@@ -30,4 +30,4 @@ Lo stoccaggio dei dati è effettuato negli elementi della lista: teniamo traccia
 
 ## Complessità delle operazioni
 
-La complessità temporale di ogni operazione è O(1) se utilizziamo una lista semplicemente connessa o un vettore con stoccaggio finito.
+La **complessità temporale** di ogni operazione è O(1) se utilizziamo una lista semplicemente connessa o un vettore con stoccaggio finito.

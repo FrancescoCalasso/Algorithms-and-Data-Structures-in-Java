@@ -1,9 +1,9 @@
 # Grafo
 
-Il grafo è la struttura dati più naturale per rappresentare un insieme di oggetti legati da una generica relazione tra di loro.
+Il *[grafo](src/main/java/model/struct/Grafo/Grafo.java)* è la struttura dati più naturale per rappresentare un insieme di oggetti legati da una generica relazione tra di loro.
 La relazione tra gli oggetti è rappresentata da un insieme di coppie di oggetti (ordinate o meno), legate tra loro da un *arco*: questo, a sua volta, può avere un verso (grafo diretto) o meno.
 
-Esempio: Una mappa stradale: nodi → città, relazione → le città sono collegate da una strada
+Esempio, una mappa stradale: nodi → città, relazione → le città sono collegate da una strada
 
 ## Rappresentazione di un grafo
 
@@ -19,7 +19,7 @@ La **complessità temporale** per vedere se una coppia (v<sub>1</sub>, v<sub>2</
 
 Una *matrice di valori booleani |V| × |V|*, con righe e colonne indicizzate dai nomi dei nodi: la cella alla riga i, colonna j contiene 1 se l’arco (v<sub>i</sub>,v<sub>j</sub>) è presente nel grafo (0 altrimenti).
 
-La **complessità spaziale** è data da \theta(|V|<sup>2</sup>), mentre la **complessità temporale** per vedere se una coppia (v<sub>1</sub>, v<sub>2</sub>) appartiene al grafo è Θ(1) (è sufficiente controllare se la cella (v<sub>1</sub>, v<sub>2</sub>).
+La **complessità spaziale** è data da Θ(|V|<sup>2</sup>), mentre la **complessità temporale** per vedere se una coppia (v<sub>1</sub>, v<sub>2</sub>) appartiene al grafo è Θ(1) (è sufficiente controllare se la cella (v<sub>1</sub>, v<sub>2</sub>).
 
 ## Visite di un grafo
 
