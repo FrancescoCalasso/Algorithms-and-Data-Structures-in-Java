@@ -1,17 +1,8 @@
 package model.algorithm.InsertionSort;
 
-import model.algorithm.Algorithm;
+public class InsertionSort {
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
-public class InsertionSort implements Algorithm {
-
-    private long totalTime;
-
-    @Override
-    public int[] sort(int[] arr) {
+    public void sort(int[] arr) {
 
         for (int i = 1; i <= arr.length - 1; i++) {
 
@@ -28,48 +19,6 @@ public class InsertionSort implements Algorithm {
             arr[j + 1] = key;
 
         }
-
-        return arr.clone();
-
-    }
-
-    @Override
-    public void showHistory() throws IOException {
-
-        FileReader f;
-        f = new FileReader("src/main/resources/insertionsort.txt");
-
-        BufferedReader b;
-        b = new BufferedReader(f);
-
-        String s;
-
-        while (true) {
-
-            s = b.readLine();
-            if (s == null)
-                break;
-            System.out.println(s);
-
-        }
-    }
-
-    @Override
-    public void setTotalTime(long time) {
-
-        this.totalTime = time;
-
-    }
-
-    @Override
-    public long getTotalTime(int[] array) {
-
-        long time = System.nanoTime();
-        sort(array);
-        time = System.nanoTime() - time;
-
-        setTotalTime(time);
-        return totalTime;
 
     }
 

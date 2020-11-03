@@ -1,11 +1,8 @@
 package model.struct.RBT;
 
-import model.struct.BST.BinaryNode;
-import model.struct.Struct;
-
 import java.util.ArrayList;
 
-public class RBTree implements Struct {
+public class RBTree {
 
     ArrayList<BinaryNode> nodi;
     BinaryNode root;

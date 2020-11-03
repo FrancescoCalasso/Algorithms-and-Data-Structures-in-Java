@@ -1,17 +1,14 @@
 package model.struct.Heap;// Java program to implement Max Heap
 
-import model.algorithm.Algorithm;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class MaxHeap implements Algorithm {
+public class MaxHeap {
 
     private int[] Heap;
     private int size;
     private int maxsize;
-    private long totalTime;
 
     // Constructor to initialize an
     // empty max heap with given maximum
@@ -153,7 +150,7 @@ public class MaxHeap implements Algorithm {
         return popped;
     }
 
-    @Override
+
     public int[] sort(int[] array) {
 
         buildHeap(array);
@@ -167,46 +164,6 @@ public class MaxHeap implements Algorithm {
         printRelationships();
 
         return Heap;
-
-    }
-
-    @Override
-    public void showHistory() throws IOException {
-
-        FileReader f;
-        f = new FileReader("src/main/resources/heapsort.txt");
-
-        BufferedReader b;
-        b = new BufferedReader(f);
-
-        String s;
-
-        while (true) {
-
-            s = b.readLine();
-            if (s == null)
-                break;
-            System.out.println(s);
-
-        }
-    }
-
-    @Override
-    public void setTotalTime(long time) {
-
-        this.totalTime = time;
-
-    }
-
-    @Override
-    public long getTotalTime(int[] array) {
-
-        long time = System.nanoTime();
-        sort(array);
-        time = System.nanoTime() - time;
-
-        setTotalTime(time);
-        return totalTime;
 
     }
 

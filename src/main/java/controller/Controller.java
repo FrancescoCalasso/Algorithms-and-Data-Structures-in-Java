@@ -1,6 +1,5 @@
 package controller;
 
-import model.algorithm.Algorithm;
 import model.struct.Grafo.Arco;
 import model.struct.BST.BST;
 import model.struct.BST.BinaryNode;

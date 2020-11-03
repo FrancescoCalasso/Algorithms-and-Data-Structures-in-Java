@@ -1,17 +1,19 @@
-package model.struct.BST;
+package model.struct.RBT;
 
 import view.TreePrinter;
 
 public class BinaryNode implements TreePrinter.PrintableNode {
 
     int key;
+    String color;
     BinaryNode p;
     BinaryNode left;
     BinaryNode right;
 
-    public BinaryNode(int key) {
+    public BinaryNode(int key, String color) {
 
         this.key = key;
+        this.color = color;
 
     }
 

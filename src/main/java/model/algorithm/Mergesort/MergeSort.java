@@ -1,16 +1,11 @@
 package model.algorithm.Mergesort;
 
-import model.algorithm.Algorithm;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 /* Java program for Merge Sort */
-public class MergeSort implements Algorithm {
-
-    private int[] sortedArray;
-    private long totalTime;
+public class MergeSort {
 
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
@@ -80,58 +75,6 @@ public class MergeSort implements Algorithm {
             merge(arr, l, m, r);
 
         }
-
-        sortedArray = arr.clone();
-
-    }
-
-    // Adapter for mergeSort
-    @Override
-    public int[] sort(int[] arr) {
-
-        int l = 0;
-        int r = arr.length - 1;
-        mergeSort(arr, l, r);
-
-        return sortedArray;
-
-    }
-
-    @Override
-    public void showHistory() throws IOException {
-
-        FileReader f;
-        f = new FileReader("src/main/resources/mergesort.txt");
-
-        BufferedReader b;
-        b = new BufferedReader(f);
-
-        String s;
-
-        while (true) {
-
-            s = b.readLine();
-            if (s == null)
-                break;
-            System.out.println(s);
-
-        }
-    }
-
-    @Override
-    public void setTotalTime(long totalTime) {
-        this.totalTime = totalTime;
-    }
-
-    @Override
-    public long getTotalTime(int[] array) {
-
-        long time = System.nanoTime();
-        sort(array);
-        time = System.nanoTime() - time;
-
-        setTotalTime(time);
-        return totalTime;
 
     }
 

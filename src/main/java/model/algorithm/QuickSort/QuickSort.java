@@ -1,18 +1,11 @@
 package model.algorithm.QuickSort;
 
-import model.algorithm.Algorithm;
-import model.algorithm.TimeAnalysis;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 // Java program for implementation of QuickSort
-public class QuickSort implements Algorithm {
-
-    int[] sortedArray;
-    private long totalTime;
-    TimeAnalysis timeAnalysis;
+public class QuickSort {
 
     /* This function takes last element as pivot,
        places the pivot element at its correct
@@ -63,59 +56,5 @@ public class QuickSort implements Algorithm {
             quickSort(arr, pi + 1, high);
         }
 
-        sortedArray = arr.clone();
-
     }
-
-    // Adapter for quickSort
-    @Override
-    public int[] sort(int[] arr) {
-
-        int l = 0;
-        int r = arr.length - 1;
-        quickSort(arr, l, r);
-
-        return sortedArray;
-
-    }
-
-    @Override
-    public void showHistory() throws IOException {
-
-        FileReader f;
-        f = new FileReader("src/main/resources/quicksort.txt");
-
-        BufferedReader b;
-        b = new BufferedReader(f);
-
-        String s;
-
-        while (true) {
-
-            s = b.readLine();
-            if (s == null)
-                break;
-            System.out.println(s);
-
-        }
-    }
-
-    @Override
-    public void setTotalTime(long totalTime) {
-        this.totalTime = totalTime;
-    }
-
-    @Override
-    public long getTotalTime(int[] array) {
-
-        long time = System.nanoTime();
-        sort(array);
-        time = System.nanoTime() - time;
-
-        setTotalTime(time);
-        return totalTime;
-
-    }
-
-
 }
