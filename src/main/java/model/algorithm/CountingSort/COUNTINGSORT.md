@@ -7,3 +7,7 @@ L'algoritmo è semplice ed intuitivo:
 * Si prepara un array *C* di dimensione pari all'intervallo dei valori con C[i] che rappresenta la frequenza dell'elemento *i + min(A)* nell'array di partenza *A*
 * Si visita l'array A aumentando l'elemento di C corrispondente
 * Dopo si visita l'array C in ordine e si scrivono su A *C[i]* copie del valore *i + min(A)*.
+
+## Esempio
+
+![Alt Text](https://www.codesdope.com/staticroot/images/algorithm/count1.gif)
