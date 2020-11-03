@@ -20,14 +20,14 @@ Tutte le operazioni che non vanno a modificare la struttura dell'albero sono ide
 
 Le operazioni di inserimento e cancellazione hanno necessità di mantenere le proprietà degli alberi rosso-neri.
 
-## Inserisci un nodo nell'albero
+## [Inserisci un nodo nell'albero](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/607a229f432fe9afefe1793c7bb95257b81f859a/src/main/java/model/struct/RBT/RBTree.java#L164)
 
 L'inserimento procede ad inserire il nuovo elemento come se l'albero fosse un semplice BST, salvo:
 * Assegnare il valore dei sottoalberi del nodo a T.nil al posto di NIL se viene inserito come una foglia
-* Assegnare il valore del genitore del nodo a T.nil al posto di NIL se il nodo `e inserito come radice
+* Assegnare il valore del genitore del nodo a T.nil al posto di NIL se il nodo è inserito come radice
 * Colorare il nodo appena inserito di rosso
 
-In questo procedimento, possono essere violate le proprietà 4 e 2, per questo è necessario l'utilizzo di una funzione ausiliaria *RiparaRBInserisci()* che ripristini le proprietà dell'RBT; vi possono essere 3 casi a seconda delle relazioni tra i nodi e dei loro colori:
+In questo procedimento, possono essere violate le proprietà 4 e 2, per questo è necessario l'utilizzo di una funzione ausiliaria *[RiparaRBInserisci()](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/607a229f432fe9afefe1793c7bb95257b81f859a/src/main/java/model/struct/RBT/RBTree.java#L200)* che ripristini le proprietà dell'RBT; vi possono essere 3 casi a seconda delle relazioni tra i nodi e dei loro colori:
 
 1. "Zio" rosso → cambio di colore per nonno, padre e zio (se il nonno è radice, si può ricolorare di nero senza problemi)
 
@@ -37,9 +37,9 @@ In questo procedimento, possono essere violate le proprietà 4 e 2, per questo �
 
 L'inserimento, comprensivo di riparazione, ha *complessità temporale* pari a O(logn).
 
-## Cancellazione di un nodo dall'albero
+## [Cancellazione di un nodo dall'albero](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/607a229f432fe9afefe1793c7bb95257b81f859a/src/main/java/model/struct/RBT/RBTree.java#L249)
 
-Anche la cancellazione procede nello stesso modo del BST, con alcune differenze dovute a possibili proprietà violate. Nello specifico, è possibile distinguere 5 casi a seconda delle relazioni tra i nodi e i loro colori:
+Anche la cancellazione procede nello stesso modo del BST, con alcune differenze dovute a possibili proprietà violate e il conseguente ausilio della funzione *[RiparaRBCancella()](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/607a229f432fe9afefe1793c7bb95257b81f859a/src/main/java/model/struct/RBT/RBTree.java#L296)*. Nello specifico, è possibile distinguere 5 casi a seconda delle relazioni tra i nodi e i loro colori:
 
 * Caso 0: *x è rosso* → viene colorato di nero
 * Caso 1: *x è nero con fratello rosso* → cambio di colore per fratello e padre, *LeftRotate(padre)*: ci si trova ora in uno tra i casi 2, 3, 4
@@ -51,4 +51,4 @@ La procedura complessiva di cancellazione ha *complessità temporale* pasi a O(l
 
 ## Rotazione
 
-La rotazione è un'operazione locale a due nodi che cambia il livello a cui sono situati due nodi senza violare le proprietà. Abbiamo due diversi tipi di rotazione, una a *destra* e una a *sinistra*.
+La rotazione è un'operazione locale a due nodi che cambia il livello a cui sono situati due nodi senza violare le proprietà. Abbiamo due diversi tipi di rotazione, una a *[destra](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/607a229f432fe9afefe1793c7bb95257b81f859a/src/main/java/model/struct/RBT/RBTree.java#L130)* e una a *[sinistra](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/607a229f432fe9afefe1793c7bb95257b81f859a/src/main/java/model/struct/RBT/RBTree.java#L97)*.
