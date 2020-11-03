@@ -1,7 +1,6 @@
 package model.algorithm.CountingSort;
 
-public // Java implementation of Counting Sort
-class CountingSort {
+public class CountingSort {
 
     public void sort(char arr[]) {
 
