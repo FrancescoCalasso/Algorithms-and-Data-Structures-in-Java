@@ -4,13 +4,15 @@ public class CodaList {
 
     private Nodo head, tail;
 
-    public void push(Nodo nodo) {
+    // Aggiungi nodo in coda alla lista
+    public void enqueue(Nodo nodo) {
 
         tail.next = nodo;
 
     }
 
-    public Nodo pop() {
+    // Estrai nodo in testa alla lista
+    public Nodo dequeue() {
 
         Nodo temp = head;
         head = head.next;

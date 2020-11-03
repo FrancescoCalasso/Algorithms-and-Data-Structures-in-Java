@@ -15,7 +15,8 @@ public class CodaVect {
 
     }
 
-    public void push(int numero) {
+    // Aggiungi numero alla fine del vettore
+    public void enqueue(int numero) {
 
         if (tail == maxsize) return;
 
@@ -23,7 +24,8 @@ public class CodaVect {
 
     }
 
-    public int pop() {
+    // Estrai numero all'inizio del vettore
+    public int dequeue() {
 
         if (IsEmpty()) return 0;
 

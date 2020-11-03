@@ -128,7 +128,7 @@ public class RBTree {
     }
 
     /*
-    LEFTROTATE:
+    RIGHTROTATE:
      */
     public void rightRotate(BinaryNode t) {
 
