@@ -6,7 +6,7 @@
 
 - Ordina le due sottosequenze in modo ricorsivo utilizzando l’algoritmo *[mergesort](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/e24523e7728c51a2709b062477a9d5ca95035de8/src/main/java/model/algorithm/Mergesort/MergeSort.java#L63)*;
 
-- Fonde (*[merge]https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/e24523e7728c51a2709b062477a9d5ca95035de8/src/main/java/model/algorithm/Mergesort/MergeSort.java#L13)*) le due sottosequenze ordinate per generare la sequenza ordinata.
+- Fonde (*[merge](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/e24523e7728c51a2709b062477a9d5ca95035de8/src/main/java/model/algorithm/Mergesort/MergeSort.java#L10)*) le due sottosequenze ordinate per generare la sequenza ordinata.
 
 Il modo di operare dell’algoritmo è simile a quanto segue: 
 
