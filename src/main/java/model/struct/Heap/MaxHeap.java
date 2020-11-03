@@ -103,5 +103,12 @@ public class MaxHeap {
         maxHeapify(1);
         return popped;
     }
+
+    // Return max key element (root)
+    public int max() {
+
+        return heap[1];
+
+    }
     
 }
