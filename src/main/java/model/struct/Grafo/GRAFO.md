@@ -7,7 +7,7 @@ Esempio, una mappa stradale: nodi → città, relazione → le città sono colle
 
 ## Rappresentazione di un grafo
 
-### [Lista di adiacenza](src/main/java/model/struct/Grafo/GrafoList.java)
+### [Lista di adiacenza](/src/main/java/model/struct/Grafo/GrafoList.java)
 
 Il grafo è rappresentato da un *vettore di liste lungo |V|*, indicizzato dai nomi dei nodi: ogni lista contiene i nodi adiacenti all’indice della sua testa.
 
