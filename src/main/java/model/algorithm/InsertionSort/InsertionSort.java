@@ -1,7 +1,15 @@
 package model.algorithm.InsertionSort;
 
+/**
+ * Questa classe rappresenta l'algoritmo di ordinamento Insertion sort
+ */
 public class InsertionSort {
 
+    /**
+     * Funzione che effettua l'ordinamento dell'array in input
+     *
+     * @param arr array da ordinare
+     */
     public void sort(int[] arr) {
 
         for (int i = 1; i <= arr.length - 1; i++) {

@@ -1,10 +1,8 @@
 package model.algorithm.QuickSort;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
-// Java program for implementation of QuickSort
+/**
+ * Questa classe rappresenta l'algoritmo di ordinamento Quicksort
+ */
 public class QuickSort {
 
     /* This function takes last element as pivot,
@@ -13,7 +11,19 @@ public class QuickSort {
        smaller (smaller than pivot) to left of
        pivot and all greater elements to right
        of pivot */
-    int partition(int[] arr, int low, int high) {
+
+    /**
+     * Questa funzione prende l'ultimo elemento come "pivot",
+     * lo posiziona nella sua posizione corretta nell'array ordinato
+     * e posiziona tutti gli elementi più piccoli di pivot alla sua sx,
+     * quelli più grandi alla sua destra
+     *
+     * @param arr
+     * @param low
+     * @param high
+     * @return
+     */
+    public int partition(int[] arr, int low, int high) {
 
         int pivot = arr[high];
         int i = (low - 1); // index of smaller element
