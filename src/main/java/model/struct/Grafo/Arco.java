@@ -6,8 +6,8 @@ package model.struct.Grafo;
 
 public class Arco {
 
-  public Object startingNode, endingNode;
-  public Object weight;
+  public Nodo startingNode, endingNode;
+  public int weight;
 
   /**
    * Costruttore con tre parametri
@@ -16,7 +16,7 @@ public class Arco {
    * @param end nodo finale
    * @param w peso dell'acro
    */
-  public Arco(Object start, Object end, Object w) {
+  public Arco(Nodo start, Nodo end, int w) {
     startingNode = start;
     endingNode = end;
     weight = w;

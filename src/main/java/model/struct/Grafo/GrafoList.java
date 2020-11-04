@@ -8,9 +8,12 @@ import java.util.*;
   */
 public class GrafoList {
 
-  HashMap<Object,Set<Arco>> nodi;
+  HashMap<Nodo,Set<Arco>> nodi;
   int nArchi;
 
+  /**
+   * Costruttore che inizializza una HashMap vuota
+   */
   public GrafoList() {
     nodi = new HashMap<>();
     nArchi = 0;
@@ -22,7 +25,7 @@ public class GrafoList {
    * @param node nodo da cercare
    * @return true se il nodo è stato trovato, false altrimenti
    */
-  public boolean searchNode(Object node) {
+  public boolean searchNode(Nodo node) {
 
     if(nodi.containsKey(node)) {
 
@@ -41,7 +44,7 @@ public class GrafoList {
    * 
    * @param node nodo da inserire
    */
-  public void addNode(Object node) {
+  public void addNode(Nodo node) {
 
     if (!nodi.containsKey(node)) {
       Set<Arco> edges = new HashSet<>();
@@ -55,7 +58,7 @@ public class GrafoList {
    * 
    * @param node nodo da rimuovere
    */
-  public void removeNode(Object node) {
+  public void removeNode(Nodo node) {
     if (nodi.containsKey(node)) {
       Iterator<Arco> arcoInX = nodi.get(node).iterator();
       Arco a;
@@ -82,7 +85,7 @@ public class GrafoList {
    * @param weight peso dell'arco
    * @return true se rimozione avvenuta con successo, false altrimenti
    */
-  public boolean addEdge(Object starting, Object ending, Object weight) {
+  public boolean addEdge(Nodo starting, Nodo ending, int weight) {
 
     boolean start = false, end = false;
 
@@ -129,17 +132,17 @@ public class GrafoList {
    *
    * @param startingNode nodo iniziale della visita
    */
-  public void breadthFirstSearch(Object startingNode) {
-    Queue<Object> q = new LinkedList<>();
-    Set<Object> nodes = new HashSet<>(nodi.keySet());
+  public void breadthFirstSearch(Nodo startingNode) {
+    Queue<Nodo> q = new LinkedList<>();
+    Set<Nodo> nodes = new HashSet<>(nodi.keySet());
 
     q.add(startingNode);
     nodes.remove(startingNode);
 
-    for (Iterator<Object> itm = this.nodi.keySet().iterator(); itm.hasNext();) {
+    for (Iterator<Nodo> itm = this.nodi.keySet().iterator(); itm.hasNext();) {
 
       while(!q.isEmpty()){
-        Object node = q.poll();
+        Nodo node = q.poll();
         visit(node);
         Set<Arco> adjEdges = nodi.get(node);
         for (Iterator<Arco> iterator = adjEdges.iterator(); iterator
@@ -156,7 +159,7 @@ public class GrafoList {
         }
       }
 
-      Object nextStartingNode = itm.next();
+      Nodo nextStartingNode = itm.next();
       if(nodes.contains(nextStartingNode)){
         startingNode = nextStartingNode;
         nodes.remove(startingNode);
@@ -173,9 +176,9 @@ public class GrafoList {
    *
    * @param startingNode nodo da cui inizia la visita
    */
-  public void depthFirstSearch(Object startingNode) {
-    Set<Object> nodes = new HashSet<>(nodi.keySet());
-    Object node = startingNode;
+  public void depthFirstSearch(Nodo startingNode) {
+    Set<Nodo> nodes = new HashSet<>(nodi.keySet());
+    Nodo node = startingNode;
     DFS(node, nodes);
     while(!nodes.isEmpty()){
       node = nodes.iterator().next();
@@ -190,7 +193,7 @@ public class GrafoList {
    * @param next nodo da cui iniziare la visita ricorsiva
    * @param nodes marcatura
    */
-  private void DFS(Object next, Set nodes) {
+  private void DFS(Nodo next, Set nodes) {
 
     visit(next);
     nodes.remove(next);
@@ -218,8 +221,57 @@ public class GrafoList {
    *
    * @param node nodo da stampare
    */
-  private static void visit(Object node) {
+  private static void visit(Nodo node) {
     System.out.println(node);
+  }
+
+  /**
+   * Funzione che calcola attraverso l'algoritmo di Dijkstra tutte le distanze minime da un nodo iniziale
+   * ai restanti nodi del grafo
+   *
+   * @param startingNode indice del nodo iniziale
+   * @return distanze da tutti i restanti nodi
+   */
+  public double[] dijkstra(int startingNode) {
+
+    double[] dist = new double[nodi.size()];
+    boolean[] reach = new boolean[nodi.size()];
+
+    for (int i = 0; i < nodi.size(); i++) {
+      dist[i] = Double.POSITIVE_INFINITY;
+      reach[i] = false;
+    }
+
+    dist[startingNode] = 0.0;
+    int current = startingNode;
+
+    while (current != -1) {
+      reach[current] = true;
+      Iterator<Arco> itAd = nodi.get(current).iterator();
+
+      while (itAd.hasNext()) {
+
+        Arco a = itAd.next();
+        if (!reach[a.endingNode.indice]) {
+          double nuovaDist = dist[current] + a.weight;
+          if (nuovaDist < dist[a.endingNode.indice])
+            dist[a.endingNode.indice] = nuovaDist;
+        }
+
+      }
+
+      current = -1;
+      double minPeso = Double.POSITIVE_INFINITY;
+
+      for (int i = 0; i < nodi.size() ; i++)
+        if (!reach[i] && dist[i] < minPeso) {
+          current = i;
+          minPeso = dist[i];
+        }
+    }
+
+    return dist;
+
   }
 
 }
