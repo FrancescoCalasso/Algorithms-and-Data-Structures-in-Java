@@ -181,7 +181,7 @@ public class GrafoList {
   }
 
   /**
-   * Funzione ausiliaria di visitaDFS, esegue una visita ricorsiva partendo dal nodo next
+   * Funzione ausiliaria della visita in profondità, esegue una visita ricorsiva partendo dal nodo next
    * ed utilizzando come marcatura nodes
    *
    * @param next nodo da cui iniziare la visita ricorsiva
