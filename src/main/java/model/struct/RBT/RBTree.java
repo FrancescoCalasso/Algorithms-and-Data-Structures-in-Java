@@ -1,27 +1,43 @@
 package model.struct.RBT;
-
 import java.util.ArrayList;
 
+/**
+ * Questa classe rappresenta un albero rosso e nero:
+ * 1. Ogni nodo è rosso o nero
+ * 2. La radice è nera
+ * 3. Le foglie sono nere
+ * 4. I figli di un nodo rosso sono entrambi neri
+ * 5. Per ogni nodo dell'albero, tutti i cammini dai suoi discendenti
+ *    alle foglie contenute nei suoi sottoalberi hanno lo stesso numero di nodi neri
+ */
 public class RBTree {
 
     ArrayList<BinaryNode> nodi;
     BinaryNode root;
     int size;
 
+    /**
+     * Costruttore che inizializza un RBT con la sola radice nera
+     */
     public RBTree() {
 
         nodi = new ArrayList<>();
-        //root = new BinaryNode("black");
+        root.color = "black";
         root.key = 1;
         nodi.add(root);
         size = 1;
 
     }
 
-    /*
-    RICERCA: Se la radice è uguale al nodo da cercare, restituisci radice, altrimenti:
-    - radice minore del nodo, search sul nodo destro
-    - radice maggiore del nodo, search sul nodo sinistro
+    /**
+     * Ricerca di un nodo
+     *
+     * Se la radice è uguale al nodo da cercare, restituisci radice, altrimenti:
+     * - radice minore del nodo, search sul nodo destro
+     * - radice maggiore del nodo, search sul nodo sinistro
+     *
+     * @param t nodo da cercare
+     * @return nodo ricercato
      */
     public BinaryNode search(BinaryNode t) {
 
@@ -37,8 +53,11 @@ public class RBTree {
 
     }
 
-    /*
-    MAX: Restituisce il nodo con chiave massima dell'albero. Ovviamente, il nodo più a dx.
+    /**
+     * Restituisce il nodo con chiave massima del sottoalbero del nodo "t". Ovviamente, il nodo più a dx.
+     *
+     * @param t nodo padre del sottoalbero
+     * @return nodo con chiave massima
      */
     public BinaryNode max(BinaryNode t) {
 
@@ -54,8 +73,11 @@ public class RBTree {
 
     }
 
-    /*
-    MIN: Restituisce il nodo con chiave minima dell'albero. Ovviamente, il nodo più a sx.
+    /**
+     * Restituisce il nodo con chiave minima del sottoalbero del nodo "t". Ovviamente, il nodo più a sx.
+     *
+     * @param t nodo padre del sottoalbero
+     * @return nodo con chiave minima
      */
     public BinaryNode min(BinaryNode t) {
 
@@ -69,11 +91,16 @@ public class RBTree {
 
     }
 
-    /*
-    SUCCESSORE: Due possibili casi:
-    - Sottoalbero dx non vuoto, il successore è il minimo del sottoalbero dx
-    - Sottoalbero dx vuoto, il successore è il progenitore (padre, nonno,..) più vicino che contiene il nodo
-      nel suo sottoalbero sx
+    /**
+     * Restituisce il nodo successore del nodo "t"
+     *
+     * Due possibili casi:
+     * - Sottoalbero dx non vuoto, il successore è il minimo del sottoalbero dx
+     * - Sottoalbero dx vuoto, il successore è il progenitore (padre, nonno,..) più vicino che contiene il nodo
+     *   nel suo sottoalbero sx
+     *
+     * @param t nodo di cui si vuole trovare il successore
+     * @return nodo successore
      */
     public BinaryNode successore(BinaryNode t) {
 
@@ -94,8 +121,10 @@ public class RBTree {
 
     }
 
-    /*
-    LEFTROTATE:
+    /**
+     * Rotazione a sinistra sul nodo "t"
+     *
+     * @param t nodo su cui effettuare rotazione
      */
     public void leftRotate(BinaryNode t) {
 
@@ -127,8 +156,10 @@ public class RBTree {
 
     }
 
-    /*
-    RIGHTROTATE:
+    /**
+     * Rotazione a destra sul nodo "t"
+     *
+     * @param t nodo su cui effettuare rotazione
      */
     public void rightRotate(BinaryNode t) {
 
@@ -160,11 +191,17 @@ public class RBTree {
 
     }
 
-    /*
-    INSERISCI: Usa due nodi ausiliari, precedente (padre) e corrente (figlio) per scorrere l'albero; a seconda che il
-    nodo da inserire sia:
-    - minore del nodo corrente, scendi da sx
-    - maggiore del nodo corrente, scendi da dx
+    /**
+     * Inserimento di un nodo
+     *
+     * Usa due nodi ausiliari, precedente (padre) e corrente (figlio) per scorrere l'albero;
+     * a seconda che il nodo da inserire sia:
+     * - minore del nodo corrente, scendi da sx
+     * - maggiore del nodo corrente, scendi da dx
+     *
+     * A differenza di BST, in seguito a possibili proprietà violate, invoca la riparazione
+     *
+     * @param t nodo da inserire
      */
     public void insert(BinaryNode t) {
 
@@ -197,22 +234,28 @@ public class RBTree {
 
     }
 
+    /**
+     * Ripara possibili proprietà violate in seguito a un inserimento,
+     * partendo dal nodo inserito
+     *
+     * @param z nodo inserito e da cui parte la riparazione
+     */
     public void riparaRBInserisci(BinaryNode z) {
 
         while(z.p.color.equals("red")) {
             if(z.p == z.p.left) {
                 BinaryNode y = z.p.p.right;
-                if(y.color.equals("red")) {  //CASO 1
+                if(y.color.equals("red")) {  /* CASO 1 */
                     z.p.color = "black";
                     y.color = "black";
                     z.p.p.color = "red";
                     z = z.p.p;
-                } else if(z == z.p.right) {  //CASO 2, ruotare z
+                } else if(z == z.p.right) {  /* CASO 2, ruotare z */
                     z = z.p;
                     leftRotate(z);
                 } else {
 
-                    z.p.color = "black";
+                    z.p.color = "black";    /* CASO 3 */
                     z.p.p.color = "red";
 
                     rightRotate(z.p.p);
@@ -222,17 +265,17 @@ public class RBTree {
             } else {
 
                 BinaryNode y = z.p.p.left;
-                if(y.color.equals("red")) {  //CASO 1
+                if(y.color.equals("red")) {  /* CASO 1 */
                     z.p.color = "black";
                     y.color = "black";
                     z.p.p.color = "red";
                     z = z.p.p;
-                } else if(z == z.p.left) {  //CASO 2
+                } else if(z == z.p.left) {  /* CASO 2, ruotare z */
                     z = z.p;
                     leftRotate(z);
                 } else {
 
-                    z.p.color = "black";
+                    z.p.color = "black";    /* CASO 3 */
                     z.p.p.color = "red";
 
                     leftRotate(z.p.p);
@@ -246,11 +289,17 @@ public class RBTree {
 
     }
 
-    /*
-    CANCELLA: Dipende dal numero di figli del nodo da cancellare:
-    - f.Nodo non ha figli, elimina nodo aggiornando con free()
-    - f.Nodo ha un figlio, elemento sosituito dal figlio nel suo ruolo nell'albero
-    - f.Nodo ha due figli, copio il valore del successore su di esso ed elimino il successore
+    /**
+     * Cancella il nodo "t"
+     *
+     * Dipende dal numero di figli del nodo da cancellare:
+     * - Nodo non ha figli, elimina nodo aggiornando con free()
+     * - Nodo ha un figlio, elemento sosituito dal figlio nel suo ruolo nell'albero
+     * - Nodo ha due figli, copio il valore del successore su di esso ed elimino il successore
+     *
+     * A differenza di BST, in seguito a possibili proprietà violate, invoca la riparazione
+     *
+     * @param t nodo da cancellare
      */
     public void cancella(BinaryNode t) {
 
@@ -289,10 +338,19 @@ public class RBTree {
 
         if(del != t) {
             t.key = del.key;
-            free(t);
+            free(del);
         }
+
+        riparaRBCancella(t);
+
     }
 
+    /**
+     * Ripara possibili proprietà violate in seguito a una cancellazione,
+     * partendo dal nodo che ha sostituito il nodo cancellato
+     *
+     * @param t nodo sostituto e da cui parte la riparazione
+     */
     public void riparaRBCancella(BinaryNode t) {
 
         if(t.color.equals("red")) {
@@ -309,8 +367,8 @@ public class RBTree {
 
     }
 
-    /*
-    FREE: Libera il nodo dalla lista
+    /**
+     * Libera il nodo dall'albero
      */
     public void free(BinaryNode t) {
 

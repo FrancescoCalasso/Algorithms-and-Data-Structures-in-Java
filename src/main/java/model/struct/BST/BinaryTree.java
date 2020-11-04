@@ -2,21 +2,19 @@ package model.struct.BST;
 
 import java.util.ArrayList;
 
-/*
-OVERVIEW: Albero binario di ricerca: radice ha figlio sx e dx, ogni altro nodo ha padre e figlio sx e dx. Ogni figlio sx
-ha chiave minore del padre, ogni figlio dx ha chiave maggiore del padre.
-
-Complessità di tutte le operazioni è pari a O(h); nel migliore dei casi h = log(n) (albero completo), nel peggiore h = n (lista).
-
-Un albero è bilanciato se, per ogni nodo, le altezze dei due sottoalberi differiscono al massimo di 1.
+/**
+ * Questa classe rappresenta un albero binario di ricerca: ogni figlio sx
+ * ha chiave minore del padre, ogni figlio dx ha chiave maggiore del padre.
  */
-
 public class BinaryTree {
 
     ArrayList<Nodo> nodi;
     Nodo root;
     int size;
 
+    /**
+     * Costruttore che inizializza un albero binario di ricerca con la sola radice
+     */
     public BinaryTree() {
 
         nodi = new ArrayList<>();
@@ -27,10 +25,15 @@ public class BinaryTree {
 
     }
 
-    /*
-    RICERCA: Se la radice è uguale al nodo da cercare, restituisci radice, altrimenti:
-    - radice minore del nodo, search sul nodo destro
-    - radice maggiore del nodo, search sul nodo sinistro
+    /**
+     * Ricerca di un nodo
+     *
+     * Se la radice è uguale al nodo da cercare, restituisci radice, altrimenti:
+     * - radice minore del nodo, search sul nodo destro
+     * - radice maggiore del nodo, search sul nodo sinistro
+     *
+     * @param t nodo da cercare
+     * @return nodo ricercato
      */
     public Nodo search(Nodo t) {
 
@@ -46,11 +49,15 @@ public class BinaryTree {
 
     }
 
-    /*
-    INSERISCI: Usa due nodi ausiliari, precedente (padre) e corrente (figlio) per scorrere l'albero; a seconda che il
-    nodo da inserire sia:
-    - minore del nodo corrente, scendi da sx
-    - maggiore del nodo corrente, scendi da dx
+    /**
+     * Inserimento di un nodo
+     *
+     * Usa due nodi ausiliari, precedente (padre) e corrente (figlio) per scorrere l'albero;
+     * a seconda che il nodo da inserire sia:
+     * - minore del nodo corrente, scendi da sx
+     * - maggiore del nodo corrente, scendi da dx
+     *
+     * @param t nodo da inserire
      */
     public void insert(Nodo t) {
 
@@ -81,8 +88,11 @@ public class BinaryTree {
 
     }
 
-    /*
-    MAX: Restituisce il nodo con chiave massima dell'albero. Ovviamente, il nodo più a dx.
+    /**
+     * Restituisce il nodo con chiave massima del sottoalbero del nodo "t". Ovviamente, il nodo più a dx.
+     *
+     * @param t nodo padre del sottoalbero
+     * @return nodo con chiave massima
      */
     public Nodo max(Nodo t) {
 
@@ -98,8 +108,11 @@ public class BinaryTree {
 
     }
 
-    /*
-    MIN: Restituisce il nodo con chiave minima dell'albero. Ovviamente, il nodo più a sx.
+    /**
+     * Restituisce il nodo con chiave minima del sottoalbero del nodo "t". Ovviamente, il nodo più a sx.
+     *
+     * @param t nodo padre del sottoalbero
+     * @return nodo con chiave minima
      */
     public Nodo min(Nodo t) {
 
@@ -113,11 +126,16 @@ public class BinaryTree {
 
     }
 
-    /*
-    SUCCESSORE: Due possibili casi:
-    - Sottoalbero dx non vuoto, il successore è il minimo del sottoalbero dx
-    - Sottoalbero dx vuoto, il successore è il progenitore (padre, nonno,..) più vicino che contiene il nodo
-      nel suo sottoalbero sx
+    /**
+     * Restituisce il nodo successore del nodo "t"
+     *
+     * Due possibili casi:
+     * - Sottoalbero dx non vuoto, il successore è il minimo del sottoalbero dx
+     * - Sottoalbero dx vuoto, il successore è il progenitore (padre, nonno,..) più vicino che contiene il nodo
+     *   nel suo sottoalbero sx
+     *
+     * @param t nodo di cui si vuole trovare il successore
+     * @return nodo successore
      */
     public Nodo successore(Nodo t) {
 
@@ -138,11 +156,15 @@ public class BinaryTree {
 
     }
 
-    /*
-    CANCELLA: Dipende dal numero di figli del nodo da cancellare:
-    - Nodo non ha figli, elimina nodo aggiornando con free()
-    - Nodo ha un figlio, elemento sosituito dal figlio nel suo ruolo nell'albero
-    - Nodo ha due figli, copio il valore del successore su di esso ed elimino il successore
+    /**
+     * Cancella il nodo "t"
+     *
+     * Dipende dal numero di figli del nodo da cancellare:
+     * - Nodo non ha figli, elimina nodo aggiornando con free()
+     * - Nodo ha un figlio, elemento sosituito dal figlio nel suo ruolo nell'albero
+     * - Nodo ha due figli, copio il valore del successore su di esso ed elimino il successore
+     *
+     * @param t nodo da cancellare
      */
     public void cancella(Nodo t) {
 
@@ -185,8 +207,8 @@ public class BinaryTree {
         }
     }
 
-    /*
-    FREE: Libera il nodo dalla lista
+    /**
+     * Libera il nodo dall'albero
      */
     public void free(Nodo t) {
 
@@ -202,10 +224,11 @@ public class BinaryTree {
 
     }
 
-    /*
-    VISITE: Le tre possibili strategie di visita
+    /**
+     * Visita post-ordine del nodo "node"
+     *
+     * @param node nodo di partenza
      */
-
     private void postOrdine(Nodo node) {
         if(node!=null){
             postOrdine(node.left);
@@ -214,6 +237,11 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * Visita pre-ordine del nodo "node"
+     *
+     * @param node nodo di partenza
+     */
     private void preOrdine(Nodo node) {
         if(node!=null){
             System.out.println(node.key);
@@ -223,6 +251,11 @@ public class BinaryTree {
 
     }
 
+    /**
+     * Visita in-ordine del nodo "node"
+     *
+     * @param node nodo di partenza
+     */
     private void inOrdine(Nodo node) {
         if(node!=null){
             inOrdine(node.left);

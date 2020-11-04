@@ -1,55 +1,91 @@
-package model.struct.Heap;// Java program to implement Max Heap
-// Java program to implement Max Heap 
+package model.struct.Heap;
+
+/**
+ * Questa classe rappresenta un max-heap:
+ * - la lista dei nodi e' rappresentata da un array;
+ * - per evitare confusione con i diversi pseudocodici rilevabili in rete,
+ *   la prima posizione utile dell'array è la 1
+ */
 public class MaxHeap {
     
     private int[] heap;
-    private int size;
+    private int actualSize;
     private int maxsize;
 
-    // Constructor to initialize an 
-    // empty max heap with given maximum 
-    // capacity. 
+    /**
+     * Costruttore che inizializza un max-heap vuoto di dimensione maxsize
+     *
+     * @param maxsize dimensione dell'heap
+     */
     public MaxHeap(int maxsize) {
         this.maxsize = maxsize;
-        this.size = 0;
+        this.actualSize = 0;
         heap = new int[this.maxsize + 1];
         heap[0] = Integer.MAX_VALUE;
     }
 
-    // Returns position of parent 
+    /**
+     * Restituisce il padre di un nodo
+     *
+     * @param pos posizione del nodo figlio
+     * @return posizione del padre
+     */
     private int parent(int pos) {
         return pos / 2;
     }
 
-    // Below two functions return left and 
-    // right children. 
+    /**
+     * Restituisce il figlio sinistro di un nodo
+     *
+     * @param pos posizione del nodo padre
+     * @return posizione del figlio sinistro
+     */
     private int leftChild(int pos) {
         return (2 * pos);
     }
 
+    /**
+     * Restituisce il figlio destro di un nodo
+     *
+     * @param pos posizione del nodo padre
+     * @return posizione del figlio destro
+     */
     private int rightChild(int pos) {
         return (2 * pos) + 1;
     }
 
-    // Returns true of given node is leaf 
+    /**
+     * Controlla se il nodo in posizione "pos" è una foglia
+     *
+     * @param pos posizione del nodo padre
+     * @return true se il nodo in questione è una foglia, false altrimenti
+     */
     private boolean isLeaf(int pos) {
-        if (pos >= (size / 2) && pos <= size) {
+        if (pos >= (actualSize / 2) && pos <= actualSize) {
             return true;
         }
         return false;
     }
 
-    private void swap(int fpos, int spos) {
+    /**
+     * Scambia di posizione due nodi
+     *
+     * @param first posizione del primo nodo
+     * @param second posizione del secondo nodo
+     */
+    private void swap(int first, int second) {
         int tmp;
-        tmp = heap[fpos];
-        heap[fpos] = heap[spos];
-        heap[spos] = tmp;
+        tmp = heap[first];
+        heap[first] = heap[second];
+        heap[second] = tmp;
     }
 
-    // A recursive function to max heapify the given 
-    // subtree. This function assumes that the left and 
-    // right subtrees are already heapified, we only need 
-    // to fix the root. 
+    /**
+     * Controlla che le proprietà del max-heap vengano
+     * rispettate a partire dal nodo in posizione pos
+     *
+     * @param pos posizione del nodo iniziale
+     */
     private void maxHeapify(int pos) {
         if (isLeaf(pos))
             return;
@@ -67,44 +103,60 @@ public class MaxHeap {
         }
     }
 
-    // Inserts a new element to max heap 
+    /**
+     * Inserisce il nodo con valore "element" nell'heap
+     *
+     * @param element valore del nodo da inserire
+     */
     public void insert(int element) {
-        heap[++size] = element;
+        heap[++actualSize] = element;
 
-        // Traverse up and fix violated property 
-        int current = size;
+        /* Fa slittare il nodo finchè non è minore del padre */
+        int current = actualSize;
         while (heap[current] > heap[parent(current)]) {
             swap(current, parent(current));
             current = parent(current);
         }
     }
 
+    /**
+     * Stampa le relazioni che intercorrono tra i vari nodi
+     */
     public void print() {
-        for (int i = 1; i <= size / 2; i++) {
+        for (int i = 1; i <= actualSize / 2; i++) {
             System.out.print(" PARENT : " + heap[i] + " LEFT CHILD : " +
                     heap[2 * i] + " RIGHT CHILD :" + heap[2 * i + 1]);
             System.out.println();
         }
     }
 
-    // Function to build the min heap using
-    // the minHeapify
+    /**
+     * Costruisce il max-heap a partire da un array
+     */
     public void buildMaxHeap()
     {
-        for (int pos = (size / 2); pos >= 1; pos--) {
+        for (int pos = (actualSize / 2); pos >= 1; pos--) {
             maxHeapify(pos);
         }
     }
 
-    // Remove an element from max heap 
+    /**
+     * Estrae e rimuove l'elemento con valore maggiore (radice)
+     *
+     * @return valore del nodo maggiore
+     */
     public int extractMax() {
         int popped = heap[1];
-        heap[1] = heap[size--];
+        heap[1] = heap[actualSize--];
         maxHeapify(1);
         return popped;
     }
 
-    // Return max key element (root)
+    /**
+     * Restituisce, ma non rimuove, l'elemento con valore maggiore (radice)
+     *
+     * @return valore del nodo maggiore
+     */
     public int max() {
 
         return heap[1];

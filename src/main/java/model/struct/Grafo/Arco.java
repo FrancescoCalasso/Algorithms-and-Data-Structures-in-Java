@@ -1,25 +1,25 @@
 package model.struct.Grafo;
 
 /**
-  * La classe arco serve per rappresentare un arco del grafo
+  * Questa classe rappresenta un arco del grafo
   */
 
 public class Arco {
 
   public Object startingNode, endingNode;
-  public Object value;
+  public Object weight;
 
   /**
-   * Costruttore con tre argomenti
+   * Costruttore con tre parametri
    *
-   * @param x1 primo nodo
-   * @param y1 secondo nodo
-   * @param v valore
+   * @param start nodo iniziale
+   * @param end nodo finale
+   * @param w peso dell'acro
    */
-  public Arco(Object x1, Object y1, Object v) {
-    startingNode = x1;
-    endingNode = y1;
-    value = v;
+  public Arco(Object start, Object end, Object w) {
+    startingNode = start;
+    endingNode = end;
+    weight = w;
   }
 
 }

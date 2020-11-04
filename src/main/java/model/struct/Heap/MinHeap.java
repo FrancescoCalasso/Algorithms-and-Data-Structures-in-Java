@@ -1,46 +1,68 @@
 package model.struct.Heap;
 
-// Java implementation of Min Heap
+/**
+ * Questa classe rappresenta un min-heap:
+ * - la lista dei nodi e' rappresentata da un array;
+ * - per evitare confusione con i diversi pseudocodici rilevabili in rete,
+ *   la prima posizione utile dell'array è la 1
+ */
 public class MinHeap {
+
     private int[] heap;
     private int size;
     private int maxsize;
 
-    private static final int FRONT = 1;
-
-    public MinHeap(int maxsize)
-    {
+    /**
+     * Costruttore che inizializza un min-heap vuoto di dimensione maxsize
+     *
+     * @param maxsize dimensione dell'heap
+     */
+    public MinHeap(int maxsize) {
         this.maxsize = maxsize;
         this.size = 0;
         heap = new int[this.maxsize + 1];
         heap[0] = Integer.MIN_VALUE;
     }
 
-    // Function to return the position of
-    // the parent for the node currently
-    // at pos
+    /**
+     * Restituisce il padre di un nodo
+     *
+     * @param pos posizione del nodo figlio
+     * @return posizione del padre
+     */
     private int parent(int pos)
     {
         return pos / 2;
     }
 
-    // Function to return the position of the
-    // left child for the node currently at pos
+    /**
+     * Restituisce il figlio sinistro di un nodo
+     *
+     * @param pos posizione del nodo padre
+     * @return posizione del figlio sinistro
+     */
     private int leftChild(int pos)
     {
         return (2 * pos);
     }
 
-    // Function to return the position of
-    // the right child for the node currently
-    // at pos
+    /**
+     * Restituisce il figlio destro di un nodo
+     *
+     * @param pos posizione del nodo padre
+     * @return posizione del figlio destro
+     */
     private int rightChild(int pos)
     {
         return (2 * pos) + 1;
     }
 
-    // Function that returns true if the passed
-    // node is a leaf node
+    /**
+     * Controlla se il nodo in posizione "pos" è una foglia
+     *
+     * @param pos posizione del nodo padre
+     * @return true se il nodo in questione è una foglia, false altrimenti
+     */
     private boolean isLeaf(int pos)
     {
         if (pos >= (size / 2) && pos <= size) {
@@ -49,34 +71,42 @@ public class MinHeap {
         return false;
     }
 
-    // Function to swap two nodes of the heap
-    private void swap(int fpos, int spos)
+    /**
+     * Scambia di posizione due nodi
+     *
+     * @param first posizione del primo nodo
+     * @param second posizione del secondo nodo
+     */
+    private void swap(int first, int second)
     {
         int tmp;
-        tmp = heap[fpos];
-        heap[fpos] = heap[spos];
-        heap[spos] = tmp;
+        tmp = heap[first];
+        heap[first] = heap[second];
+        heap[second] = tmp;
     }
 
-    // Function to heapify the node at pos
+    /**
+     * Controlla che le proprietà del min-heap vengano
+     * rispettate a partire dal nodo in posizione pos
+     *
+     * @param pos posizione del nodo iniziale
+     */
     private void minHeapify(int pos)
     {
 
-        // If the node is a non-leaf node and greater
-        // than any of its child
+        /* Se il nodo non è una foglia ed è maggiore
+           di entrambi i figli */
         if (!isLeaf(pos)) {
             if (heap[pos] > heap[leftChild(pos)]
                     || heap[pos] > heap[rightChild(pos)]) {
 
-                // Swap with the left child and heapify
-                // the left child
+                /* Scambia con il figlio sinistro ed "heapify" il figlio sinistro */
                 if (heap[leftChild(pos)] < heap[rightChild(pos)]) {
                     swap(pos, leftChild(pos));
                     minHeapify(leftChild(pos));
                 }
 
-                // Swap with the right child and heapify
-                // the right child
+                /* Scambia con il figlio sinistro ed "heapify" il figlio sinistro */
                 else {
                     swap(pos, rightChild(pos));
                     minHeapify(rightChild(pos));
@@ -85,7 +115,11 @@ public class MinHeap {
         }
     }
 
-    // Function to insert a node into the heap
+    /**
+     * Inserisce il nodo con valore "element" nell'heap
+     *
+     * @param element valore del nodo da inserire
+     */
     public void insert(int element)
     {
         if (size >= maxsize) {
@@ -100,7 +134,9 @@ public class MinHeap {
         }
     }
 
-    // Function to print the contents of the heap
+    /**
+     * Stampa le relazioni che intercorrono tra i vari nodi
+     */
     public void print()
     {
         for (int i = 1; i <= size / 2; i++) {
@@ -111,8 +147,9 @@ public class MinHeap {
         }
     }
 
-    // Function to build the min heap using
-    // the minHeapify
+    /**
+     * Costruisce il min-heap a partire da un array
+     */
     public void buildMinHeap()
     {
         for (int pos = (size / 2); pos >= 1; pos--) {
@@ -120,14 +157,28 @@ public class MinHeap {
         }
     }
 
-    // Function to remove and return the minimum
-    // element from the heap
-    public int remove()
+    /**
+     * Estrae e rimuove l'elemento con valore minore (radice)
+     *
+     * @return valore del nodo minore
+     */
+    public int extractMin()
     {
-        int popped = heap[FRONT];
-        heap[FRONT] = heap[size--];
-        minHeapify(FRONT);
+        int popped = heap[1];
+        heap[1] = heap[size--];
+        minHeapify(1);
         return popped;
+    }
+
+    /**
+     * Restituisce, ma non rimuove, l'elemento con valore min (radice)
+     *
+     * @return valore del nodo minore
+     */
+    public int min() {
+
+        return heap[1];
+
     }
 
 }

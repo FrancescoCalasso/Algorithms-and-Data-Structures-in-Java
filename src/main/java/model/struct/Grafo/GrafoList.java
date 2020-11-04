@@ -42,10 +42,12 @@ public class GrafoList {
    * @param node nodo da inserire
    */
   public void addNode(Object node) {
+
     if (!nodi.containsKey(node)) {
       Set<Arco> edges = new HashSet<>();
       nodi.put(node, edges);
     }
+
   }
 
   /**
@@ -77,10 +79,10 @@ public class GrafoList {
    * 
    * @param starting nodo iniziale
    * @param ending nodo finale
-   * @param value peso dell'arco
+   * @param weight peso dell'arco
    * @return true se rimozione avvenuta con successo, false altrimenti
    */
-  public boolean addEdge(Object starting, Object ending, Object value) {
+  public boolean addEdge(Object starting, Object ending, Object weight) {
 
     boolean start = false, end = false;
 
@@ -90,7 +92,7 @@ public class GrafoList {
     if (!nodi.containsKey(ending))
       addNode(ending);
 
-    Arco a = new Arco(starting, ending, value);
+    Arco a = new Arco(starting, ending, weight);
 
     start = (nodi.get(starting)).add(a);
     end =(nodi.get(ending)).add(a);
@@ -119,6 +121,7 @@ public class GrafoList {
     }
 
     return start || end;
+
   }
 
   /**
