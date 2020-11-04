@@ -8,9 +8,8 @@ Questo repository espone i principali algoritmi e strutture dati in linguaggio J
 * **[Pila](src/main/java/model/struct/Pila/PILA.md)**
 * **[BST](src/main/java/model/struct/BST/BST.md)**
 * **[RBT](src/main/java/model/struct/RBT/RBT.md)**
-* **[Hash](src/main/java/model/struct/Hash/HASH.md)**
-* **[Grafo](src/main/java/model/struct/Grafo/GRAFO.md)** (*liste di adiacenza*, *matrice di adiacenza*)
-* **[Heap](src/main/java/model/struct/Heap/HEAP.md)** (*min-heap*, *max-heap*)
+* **[Grafo](src/main/java/model/struct/Grafo/GRAFO.md)**
+* **[Heap](src/main/java/model/struct/Heap/HEAP.md)**
 
 ## Algoritmi
 
