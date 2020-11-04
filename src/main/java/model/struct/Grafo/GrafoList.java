@@ -4,7 +4,7 @@ import java.util.*;
 /**
   * Questa classe rappresenta un grafo mediante liste di adiacenza:
   * - la lista dei nodi e' rappresentata da una HashMap;
-  * - la lista dei nodi adiacenti e' rappresentata da un HashSet di archi.
+  * - la lista dei nodi adiacenti e' rappresentata da un Set di archi.
   */
 public class GrafoList {
 
@@ -14,6 +14,26 @@ public class GrafoList {
   public GrafoList() {
     nodi = new HashMap<>();
     nArchi = 0;
+  }
+
+  /**
+   * Ricerca un nodo nel grafo
+   *
+   * @param node nodo da cercare
+   * @return true se il nodo è stato trovato, false altrimenti
+   */
+  public boolean searchNode(Object node) {
+
+    if(nodi.containsKey(node)) {
+
+      return true;
+
+    } else {
+
+      return false;
+
+    }
+
   }
 
   /**
