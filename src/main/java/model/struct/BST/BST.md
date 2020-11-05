@@ -3,7 +3,7 @@
 Un albero è una struttura dati costituita da un insieme di nodi e uno di archi che li collegano (*V, E*).
 Ogni nodo può avere al più un arco entrante, ma un numero arbitrario di archi uscenti.
 
-Gli [alberi binari di ricerca](/src/main/java/model/struct/BST/BinaryTree.java) sono particolari tipi di alberi che devono il loro nome al fatto che ogni nodo può avere solo due archi uscenti (un figlio sinistro e un figlio destro).
+Gli *[alberi binari di ricerca](/src/main/java/model/struct/BST/BinaryTree.java)* sono particolari tipi di alberi che devono il loro nome al fatto che ogni nodo può avere solo due archi uscenti (un figlio sinistro e un figlio destro).
 La caratteristica principale, che le operazioni di inserimento e cancellazione devono preservare, è che, dato un nodo *x*:
 
 * Se *y* è contenuto nel sottoalbero sinistro di x, *y.key ≤ x.key*
