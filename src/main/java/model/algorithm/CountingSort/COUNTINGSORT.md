@@ -1,6 +1,6 @@
 # Counting sort
 
-*[Counting sort](src/main/java/model/algorithm/CountingSort/CountingSort.java)* è un algoritmo di ordinamento per valori numerici interi con complessità lineare O(n+m), dove *n* è la lunghezza dell'array e *m* è pari a *max(A) - min(A) + 1* (max(A) e min(A) sono rispettivamente l'elemento più grande e l'elemento più piccolo dell'array) ovvero è il range dei valori contenuti nell'array. Non è basato su confronti e scambi e conviene utilizzarlo quando il valore di m è piccolo rispetto a n, altrimenti risulterebbero più veloci altri algoritmi.
+*[Counting sort](/src/main/java/model/algorithm/CountingSort/CountingSort.java)* è un algoritmo di ordinamento per valori numerici interi con complessità lineare O(n+m), dove *n* è la lunghezza dell'array e *m* è pari a *max(A) - min(A) + 1* (max(A) e min(A) sono rispettivamente l'elemento più grande e l'elemento più piccolo dell'array) ovvero è il range dei valori contenuti nell'array. Non è basato su confronti e scambi e conviene utilizzarlo quando il valore di m è piccolo rispetto a n, altrimenti risulterebbero più veloci altri algoritmi.
 
 L'algoritmo è semplice ed intuitivo: 
 * Si calcolano i valori max(A) e min (A)
