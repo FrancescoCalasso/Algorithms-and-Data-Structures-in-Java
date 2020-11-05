@@ -18,4 +18,4 @@ Questo repository espone i principali algoritmi e strutture dati in linguaggio J
 * **[Quicksort](/src/main/java/model/algorithm/QuickSort/QUICKSORT.md)**
 * **[Heapsort](/src/main/java/model/algorithm/Heapsort/HEAPSORT.md)**
 * **[Counting sort](/src/main/java/model/algorithm/CountingSort/COUNTINGSORT.md)**
-* **[Algoritmo di Dijkstra](/src/main/java/model/struct/Dijkstra/Dijkstra.md)**
+* **[Algoritmo di Dijkstra](/src/main/java/model/algorithm/Dijkstra/Dijkstra.md)**
