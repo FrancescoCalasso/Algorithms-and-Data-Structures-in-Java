@@ -1,6 +1,6 @@
 # Algoritmi e strutture dati in Java
 
-Questo repository espone i principali algoritmi e strutture dati in linguaggio Java: per ognuno di questi, è presente sia l'implementazione, che un file readme con la relativa spiegazione teorica e pratica.
+Questo repository espone i principali algoritmi e strutture dati in linguaggio Java: per ognuno, è presente sia l'implementazione (comprensiva di documentazione JavaDoc), che un file readme con la relativa spiegazione teorica e pratica.
 
 ## Strutture dati
 
