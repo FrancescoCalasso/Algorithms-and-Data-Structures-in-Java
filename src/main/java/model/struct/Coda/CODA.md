@@ -28,6 +28,6 @@ Lo stoccaggio dei dati è effettuato negli elementi della lista: teniamo traccia
 * **Dequeue(Q)**: restituisci l’elemento in testa se diverso da NIL, cancellandolo e aggiornando *head*
 * **Empty(S)**: Restituisci *head* = *tail* ?
 
-## Complessità delle operazioni
+### Complessità delle operazioni
 
 La **complessità temporale** di ogni operazione è O(1) se utilizziamo una lista semplicemente connessa o un vettore con stoccaggio finito.
