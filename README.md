@@ -19,4 +19,3 @@ Questo repository espone i principali algoritmi e strutture dati in linguaggio J
 * **[Heapsort](src/main/java/model/algorithm/Heapsort/HEAPSORT.md)**
 * **[Counting sort](src/main/java/model/algorithm/CountingSort/COUNTINGSORT.md)**
 * **[Algoritmo di Dijkstra](src/main/java/model/struct/CountingSort/COUNTINGSORT.md)**
-* **[Algoritmo di Floyd](src/main/java/model/algorithm/CountingSort/COUNTINGSORT.md)**
