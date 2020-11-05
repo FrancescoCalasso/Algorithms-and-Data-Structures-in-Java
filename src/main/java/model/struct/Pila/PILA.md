@@ -9,14 +9,14 @@ Una *pila* è una struttura dati con le seguenti operazioni:
 
 Questa struttura dati astratta può essere realizzata usando una *lista semplicemente connessa* o un *vettore*.
 
-### [Realizzazione con lista](src/main/java/model/struct/Pila/PilaList.java)
+### [Realizzazione con lista](/src/main/java/model/struct/Pila/PilaList.java)
 
 Lo stoccaggio dati è nella lista, le operazioni diventano: 
 * **Push(S,e)**: inserisci in testa alla lista
 * **Pop(S,e)**: restituisci il primo elemento della lista, cancellandolo dalla stessa
 * **Empty(S)**: controlla se il successore della testa è NIL
 
-### [Realizzazione con vettore](src/main/java/model/struct/Pila/PilaVect.java)
+### [Realizzazione con vettore](/src/main/java/model/struct/Pila/PilaVect.java)
 
 Lo stoccaggio dati è nella celle del vettore, viene mantenuto l’indice della cima della pila (Top of Stack, ToS)
 

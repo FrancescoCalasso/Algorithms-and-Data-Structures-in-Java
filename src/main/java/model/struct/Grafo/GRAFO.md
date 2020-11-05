@@ -27,7 +27,7 @@ Un grafo può essere visitato in *ampiezza* o *profondità*:
 
 ### Visita in ampiezza
 
-La strategia di **[visita in ampiezza](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/a0a3cb67a66847331ec1c9bdef445592062c4531/src/main/java/model/struct/Grafo/GrafoList.java#L124)** visita tutti i nodi di un grafo *G* a partire da uno nodo sorgente *s*.
+La strategia di **[visita in ampiezza](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L130)** visita tutti i nodi di un grafo *G* a partire da uno nodo sorgente *s*.
 
 Vengono visitati tutti i nodi con un cammino tra loro e *s* lungo *n* passi, prima di visitare quelli con un cammino lungo *n + 1*.
 La visita di un grafo è più problematica di quella di un albero: possono essere presenti cicli, quindi evitiamo di iterare all’infinito colorando i nodi mentre li visitiamo:
@@ -37,7 +37,7 @@ La visita di un grafo è più problematica di quella di un albero: possono esser
 
 ### Visita in profondità
 
-Diversamente dalla visita in ampiezza, **[in profondità](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/a0a3cb67a66847331ec1c9bdef445592062c4531/src/main/java/model/struct/Grafo/GrafoList.java#L168)** visitiamo prima i nodi adiacenti a quello dato, poi il nodo stesso: segue i cammini “fino in fondo” sul grafo prima di visitare i vicini del nodo di partenza.
+Diversamente dalla visita in ampiezza, **[in profondità](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L174)** visitiamo prima i nodi adiacenti a quello dato, poi il nodo stesso: segue i cammini “fino in fondo” sul grafo prima di visitare i vicini del nodo di partenza.
 
 Il codice è identico a quello della visita in ampiezza sostituendo la coda con una pila (condivide quindi anche le complessità).
 
@@ -53,7 +53,7 @@ Il codice è identico a quello della visita in ampiezza sostituendo la coda con 
 
 Complessità totale: Θ(|V| + |E|)
 
-## Cammino minimo (Algoritmo di Dijkstra)
+## Cammino minimo (*[Algoritmo di Dijkstra](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L228)*)
 
 Trova, dato un grafo orientato e un suo nodo *s*, i percorsi più brevi da un nodo a qualunque altro.
 Funziona sia su di un grafo classico, che su di un grafo pesato ovvero con archi dotati di un valore intero.
@@ -66,16 +66,14 @@ Funziona sia su di un grafo classico, che su di un grafo pesato ovvero con archi
    
 L’algoritmo effettua nel caso pessimo (grafo completamente connesso) O(|V|) accessi ad ogni controllo per le distanze, viene effettuato un controllo per ogni nodo del grafo, quindi **complessità temporale**: O(|V|<sup>2</sup>).
 
-## Rilevazione di cicli (Algoritmo di Floyd)
-
 ## Funzioni base
 
-* [Aggiungi nodo al grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/a0a3cb67a66847331ec1c9bdef445592062c4531/src/main/java/model/struct/Grafo/GrafoList.java#L39)
+* [Aggiungi nodo al grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L42)
 
-* [Rimuovi un nodo dal grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/a0a3cb67a66847331ec1c9bdef445592062c4531/src/main/java/model/struct/Grafo/GrafoList.java#L51)
+* [Rimuovi un nodo dal grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L56)
 
-* [Aggiungi arco tra due nodi al grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/a0a3cb67a66847331ec1c9bdef445592062c4531/src/main/java/model/struct/Grafo/GrafoList.java#L75)
+* [Aggiungi arco tra due nodi al grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L805)
 
-* [Rimuovi un arco dal grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/a0a3cb67a66847331ec1c9bdef445592062c4531/src/main/java/model/struct/Grafo/GrafoList.java#L106)
+* [Rimuovi un arco dal grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L111)
 
-* [Ricerca di un nodo nel grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/a0a3cb67a66847331ec1c9bdef445592062c4531/src/main/java/model/struct/Grafo/GrafoList.java#L19)
+* [Ricerca di un nodo nel grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L22)
