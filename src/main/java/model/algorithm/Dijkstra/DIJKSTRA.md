@@ -1,4 +1,4 @@
-# Cammino minimo (*[Algoritmo di Dijkstra](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L228)*)
+# Cammino minimo
 
 L'*[algoritmo di Dijkstra](/src/main/java/model/algorithm/Dijkstra/Dijkstra.java)* trova, dato un grafo orientato e un suo nodo *s*, i percorsi più brevi da un nodo a qualunque altro.
 Funziona sia su di un grafo classico, che su di un grafo pesato ovvero con archi dotati di un valore intero.
