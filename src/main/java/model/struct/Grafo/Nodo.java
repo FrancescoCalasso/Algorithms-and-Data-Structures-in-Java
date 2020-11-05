@@ -5,6 +5,6 @@ package model.struct.Grafo;
  */
 public class Nodo {
 
-    int indice;
+    public int indice;
 
 }

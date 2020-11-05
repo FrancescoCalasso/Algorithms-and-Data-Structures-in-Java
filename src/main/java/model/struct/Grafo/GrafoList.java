@@ -8,7 +8,7 @@ import java.util.*;
   */
 public class GrafoList {
 
-  HashMap<Nodo,Set<Arco>> nodi;
+  public HashMap<Nodo,Set<Arco>> nodi;
   int nArchi;
 
   /**

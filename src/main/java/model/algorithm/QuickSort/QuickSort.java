@@ -5,13 +5,6 @@ package model.algorithm.QuickSort;
  */
 public class QuickSort {
 
-    /* This function takes last element as pivot,
-       places the pivot element at its correct
-       position in sorted array, and places all
-       smaller (smaller than pivot) to left of
-       pivot and all greater elements to right
-       of pivot */
-
     /**
      * Questa funzione prende l'ultimo elemento come "pivot",
      * lo posiziona nella sua posizione corretta nell'array ordinato
@@ -48,20 +41,22 @@ public class QuickSort {
 
     }
 
-
-    /* The main function that implements MergeSort.QuickSort()
-      arr[] --> Array to be sorted,
-      low  --> Starting index,
-      high  --> Ending index */
+    /**
+     * Funzione che effettua l'ordinamento dell'array in input usando partition()
+     *
+     * @param arr array da ordinare
+     * @param low posizione iniziale
+     * @param high posizione finale
+     */
     public void quickSort(int[] arr, int low, int high) {
 
         if (low < high) {
-            /* pi is partitioning index, arr[pi] is
-              now at right place */
+            /* pi è l'indice di partizionamento,
+            ora arr[pi] è nella posizione corretta */
             int pi = partition(arr, low, high);
 
-            // Recursively sort elements before
-            // partition and after partition
+            /* Ordina ricorsivamente gli elementi prima dell'indice di partizionamento
+               e dopo l'indice di partizionamento */
             quickSort(arr, low, pi - 1);
             quickSort(arr, pi + 1, high);
         }
