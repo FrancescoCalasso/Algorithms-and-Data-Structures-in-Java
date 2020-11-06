@@ -74,6 +74,12 @@ Individuare le componenti connesse in un grafo equivale ad etichettare i nodi co
 
 Operativamente, l'algoritmo per trovare le componenti connesse sfrutta la funzione *[VisitaEdEtichetta](https://github.com/FrancescoCalasso/Algoritmi-e-strutture-dati-in-Java/blob/4b42fc2b9b586853b6f2660c46477c26e0c248cf/src/main/java/model/struct/Grafo/GrafoList.java#L293)* che funziona come *VisitaAmpiezza* o *VisitaProfondità*, con la differenza che marca ogni nodo visitato etichettandolo: alla fine, ogni nodo con la stessa etichetta appartiene alla stessa componente
 
+## Ordinamento topologico
+
+Un valore utile da calcolare per un *grafo orientato aciclico* è il cosidetto *ordinamento topologico*.
+
+L’ordinamento topologico è una sequenza di nodi del grafo tale per cui *nessun nodo compare prima di un suo predecessore* (l'ordinamento topologico non è unico).
+
 ## Funzioni base
 
 * [Aggiungi nodo al grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L42)
