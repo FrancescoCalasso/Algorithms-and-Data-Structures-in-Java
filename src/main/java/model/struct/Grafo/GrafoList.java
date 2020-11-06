@@ -29,15 +29,23 @@ public class GrafoList {
    */
   public boolean searchNode(Nodo node) {
 
-    if(nodi.containsKey(node)) {
+    if(nodi.containsKey(node)) return true;
 
-      return true;
+    return false;
 
-    } else {
+  }
 
-      return false;
+  /**
+   * Ricerca un arco tra due nodi nel grafo
+   *
+   * @param arco arco da cercare
+   * @return true se l'arco è stato trovato, false altrimenti
+   */
+  public boolean searchEdge(Arco arco) {
 
-    }
+    if(nodi.get(arco.startingNode).contains(arco) && nodi.get(arco.endingNode).contains(arco)) return true;
+
+    return false;
 
   }
 
