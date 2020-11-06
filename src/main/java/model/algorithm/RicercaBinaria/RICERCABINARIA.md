@@ -9,3 +9,5 @@ Il principio di funzionamento è il seguente:
   * Alrimenti, chiamata ricorsiva sulla metà sinistra dell'array
   
 La **complessità temporale**, intuitivamente, è pari a O(logn).
+
+![Alt Text](https://upload.wikimedia.org/wikipedia/commons/6/64/Binary_search_into_array_-_example.svg)
