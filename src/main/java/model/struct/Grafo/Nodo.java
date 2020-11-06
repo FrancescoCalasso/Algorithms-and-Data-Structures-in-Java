@@ -6,5 +6,7 @@ package model.struct.Grafo;
 public class Nodo {
 
     public int indice;
+    public int etichetta;
+    public String color;
 
 }

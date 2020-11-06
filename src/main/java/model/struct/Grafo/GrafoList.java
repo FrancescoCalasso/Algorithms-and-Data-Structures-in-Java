@@ -9,6 +9,7 @@ import java.util.*;
 public class GrafoList {
 
   public HashMap<Nodo,Set<Arco>> nodi;
+  public ArrayList<Nodo> visits;
   int nArchi;
 
   /**
@@ -16,6 +17,7 @@ public class GrafoList {
    */
   public GrafoList() {
     nodi = new HashMap<>();
+    visits = new ArrayList<>();
     nArchi = 0;
   }
 
@@ -143,7 +145,7 @@ public class GrafoList {
 
       while(!q.isEmpty()){
         Nodo node = q.poll();
-        visit(node);
+        visits.add(node);
         Set<Arco> adjEdges = nodi.get(node);
         for (Iterator<Arco> iterator = adjEdges.iterator(); iterator
                 .hasNext();) {
@@ -195,7 +197,7 @@ public class GrafoList {
    */
   private void DFS(Nodo next, Set nodes) {
 
-    visit(next);
+    visits.add(next);
     nodes.remove(next);
 
     Set<Arco> adjEdges = nodi.get(next);
@@ -214,15 +216,6 @@ public class GrafoList {
       }
 
     }
-  }
-
-  /**
-   * Stampa di un nodo
-   *
-   * @param node nodo da stampare
-   */
-  private static void visit(Nodo node) {
-    System.out.println(node);
   }
 
   /**
@@ -272,6 +265,79 @@ public class GrafoList {
 
     return dist;
 
+  }
+
+  /**
+   * Calcola le componenti connesse grazie all'uso di visitAndEti:
+   * - Nodi con la stessa etichetta appartengono alla stessa componente
+   */
+  public void componentiConnesse() {
+
+    for(Nodo nodo: nodi.keySet()) nodo.etichetta = -1;
+
+    int eti = 1;
+
+    for(Nodo nodo: nodi.keySet()) {
+
+      if(nodo.etichetta == -1) {
+
+        visitAndEti(nodo, eti);
+        eti++;
+
+      }
+
+    }
+
+  }
+
+  /**
+   * Funzione ausiliaria di componentiConnesse che etichetta con la stessa etichetta "eti"
+   * i nodi che appartengono alla stessa componente
+   *
+   * Operativamente funziona come la visita in ampiezza o profondità (in questo caso, ampiezza),
+   * con la differenza che etichetta con "eti" i nodi visitati
+   *
+   * @param startingNode nodo iniziale della visita
+   * @param eti etichetta comune
+   */
+  public void visitAndEti(Nodo startingNode, int eti) {
+
+    Queue<Nodo> q = new LinkedList<>();
+    Set<Nodo> nodes = new HashSet<>(nodi.keySet());
+
+    q.add(startingNode);
+    nodes.remove(startingNode);
+
+    for (Iterator<Nodo> itm = this.nodi.keySet().iterator(); itm.hasNext();) {
+
+      while(!q.isEmpty()){
+        Nodo node = q.poll();
+
+        /* Etichetta il nodo */
+        node.etichetta = eti;
+        Set<Arco> adjEdges = nodi.get(node);
+        for (Iterator<Arco> iterator = adjEdges.iterator(); iterator
+                .hasNext();) {
+          Arco a = iterator.next();
+          if (nodes.contains(a.startingNode)){
+            q.add(a.startingNode);
+            nodes.remove(a.startingNode);
+          }
+          if (nodes.contains(a.endingNode)){
+            q.add(a.endingNode);
+            nodes.remove(a.endingNode);
+          }
+        }
+      }
+
+      Nodo nextStartingNode = itm.next();
+      if(nodes.contains(nextStartingNode)){
+        startingNode = nextStartingNode;
+        nodes.remove(startingNode);
+        q.add(startingNode);
+      }
+
+    }
   }
 
 }
