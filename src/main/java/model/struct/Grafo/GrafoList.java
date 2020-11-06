@@ -172,7 +172,7 @@ public class GrafoList {
   }
 
   /**
-   * Visita in profondità, conn partenza da un nodo iniziale
+   * Visita in profondità, con partenza da un nodo iniziale
    *
    * @param startingNode nodo da cui inizia la visita
    */
