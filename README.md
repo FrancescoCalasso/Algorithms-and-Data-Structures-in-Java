@@ -6,8 +6,8 @@ Questo repository espone i principali algoritmi e strutture dati in linguaggio J
 
 * **[Coda](/src/main/java/model/struct/Coda/CODA.md)**
 * **[Pila](/src/main/java/model/struct/Pila/PILA.md)**
-* **[BST](/src/main/java/model/struct/BST/BST.md)**
-* **[RBT](/src/main/java/model/struct/RBT/RBT.md)**
+* **[Albero binario di ricerca](/src/main/java/model/struct/BST/BST.md)**(*BST*)
+* **[Albero rosso-nero](/src/main/java/model/struct/RBT/RBT.md)**(*RBT*)
 * **[Grafo](/src/main/java/model/struct/Grafo/GRAFO.md)**
 * **[Heap](/src/main/java/model/struct/Heap/HEAP.md)**
 
