@@ -7,6 +7,10 @@ Esempio, una mappa stradale: nodi → città, relazione → le città sono colle
 
 ## Rappresentazione di un grafo
 
+Questa struttura dati possiede due diverse possibili rappresentazioni, le *liste di adiacenza* e la *matrice di adiacenza*. 
+
+Nel seguito verranno affrontate entrambe le configurazioni, sebbene i principali algoritmi proposti siano **implementati su liste di adiacenza**. A titolo didattico, sono presenti solo la *ricerca di un nodo* e la *ricerca di un arco* in una matrice di adiacenza per poter osservare concretamente la differenza in termini di complessità tra le due configurazioni.
+
 ### [Liste di adiacenza](/src/main/java/model/struct/Grafo/GrafoList.java)
 
 Il grafo è rappresentato da un *vettore di liste lungo |V|*, indicizzato dai nomi dei nodi: ogni lista contiene i nodi adiacenti all’indice della sua testa.
@@ -90,4 +94,6 @@ L’ordinamento topologico è una sequenza di nodi del grafo tale per cui *nessu
 
 * [Rimuovi un arco dal grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L111)
 
-* [Ricerca di un nodo nel grafo](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L22)
+* Ricerca di un nodo nel grafo
+  * [Liste di adiacenza](https://github.com/FrancescoCalasso/Algorithms-and-Data-Structures-in-Java/blob/ea92f7e81c8009ff0483131e6b91c0081f3200e1/src/main/java/model/struct/Grafo/GrafoList.java#L22)
+  * [Matrice di adiacenza](https://github.com/FrancescoCalasso/Algoritmi-e-strutture-dati-in-Java/blob/ecd6c5e1526143e0a81212d025f3dafb8fef3f19/src/main/java/model/struct/Grafo/GrafoMatrix.java#L28)
