@@ -7,7 +7,7 @@ Esempio, una mappa stradale: nodi → città, relazione → le città sono colle
 
 ## Rappresentazione di un grafo
 
-### [Lista di adiacenza](/src/main/java/model/struct/Grafo/GrafoList.java)
+### [Liste di adiacenza](/src/main/java/model/struct/Grafo/GrafoList.java)
 
 Il grafo è rappresentato da un *vettore di liste lungo |V|*, indicizzato dai nomi dei nodi: ogni lista contiene i nodi adiacenti all’indice della sua testa.
 
@@ -15,7 +15,7 @@ La **complessità spaziale**, definito |E| come il numero di archi del grafo, è
 
 La **complessità temporale** per vedere se una coppia (v<sub>1</sub>, v<sub>2</sub>) appartiene al grafo è Θ(|V|) (si deve controllare, nel caso pessimo, ogni lista).
 
-### Matrice di adiacenza
+### [Matrice di adiacenza](/src/main/java/model/struct/Grafo/GrafoMatrix.java)
 
 Una *matrice di valori booleani |V| × |V|*, con righe e colonne indicizzate dai nomi dei nodi: la cella alla riga i, colonna j contiene 1 se l’arco (v<sub>i</sub>,v<sub>j</sub>) è presente nel grafo (0 altrimenti).
 
@@ -65,6 +65,14 @@ Funziona sia su di un grafo classico, che su di un grafo pesato ovvero con archi
    * Se questo accade imposto a.pred ← c, a.dist ← c.dist + peso(c, a)
    
 L’algoritmo effettua nel caso pessimo (grafo completamente connesso) O(|V|) accessi ad ogni controllo per le distanze, viene effettuato un controllo per ogni nodo del grafo, quindi **complessità temporale**: O(|V|<sup>2</sup>).
+
+## [Componenti connesse](https://github.com/FrancescoCalasso/Algoritmi-e-strutture-dati-in-Java/blob/4b42fc2b9b586853b6f2660c46477c26e0c248cf/src/main/java/model/struct/Grafo/GrafoList.java#L270)
+
+E' detta *componente connessa* di un grafo *G*, un insieme *S* di nodi tali per cui esiste un cammino tra ogni coppia di essi, ma nessuno di essi è connesso a nodi che non appartengono a S.
+
+Individuare le componenti connesse in un grafo equivale ad etichettare i nodi con lo stesso valore se appartengono alla stessa componente.
+
+Operativamente, l'algoritmo per trovare le componenti connesse sfrutta la funzione *[VisitaEdEtichetta](https://github.com/FrancescoCalasso/Algoritmi-e-strutture-dati-in-Java/blob/4b42fc2b9b586853b6f2660c46477c26e0c248cf/src/main/java/model/struct/Grafo/GrafoList.java#L293)* che funziona come *VisitaAmpiezza* o *VisitaProfondità*, con la differenza che marca ogni nodo visitato etichettandolo: alla fine, ogni nodo con la stessa etichetta appartiene alla stessa componente
 
 ## Funzioni base
 
